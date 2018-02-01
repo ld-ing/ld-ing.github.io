@@ -50,7 +50,7 @@ class NNArt extends NNArtPolymer {
         this.querySelector('#inference') as HTMLCanvasElement;
 
     this.inferenceCanvas.style.width = `${window.innerWidth}px`;
-    this.inferenceCanvas.style.height = `${Math.round(window.innerHeight/3)}px`;
+    this.inferenceCanvas.style.height = `${Math.round(window.innerHeight/2)}px`;
 
     this.cppn = new CPPN(this.inferenceCanvas);
 
