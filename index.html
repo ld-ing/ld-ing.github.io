@@ -26,26 +26,29 @@
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <!-- <link rel="icon" type="image/png" href="images/favicon.png">-->
   
-  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <!-- Global site tag (gtag.js) - Google Analytics
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-91235647-2"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
     gtag('config', 'UA-91235647-2');
   </script>
 
+  <!-- NN-Art
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <script src="node_modules/@bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
   <link rel="import" href="nn-art/nn-art.html">
   <script src="nn-art/assets/support.js"></script>
 
 </head>
 <body>
+  <!-- Header (NN-Art) 
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <div style="overflow: hidden">  
     <nn-art></nn-art>
   </div>
-  <p align="right" style="color:dimgray; margin-right:10px" > powered by <b>deeplearn.js</b></p>
 
   <!-- Primary Page Layout
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
@@ -66,13 +69,14 @@
     <!-- Profile  
     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
     <div class="row">
-      <div class="nine columns" style="margin-top: 0%">
+      <div class="ten columns" style="margin-top: 0%">
         <p>
-          <b>I'm currently at MIT, working on deep learning for perception and control of autonomous vehicles.</b>
+          <b>I'm currently at MIT, working on deep learning for perception and control of autonomous vehicles.</b> Our focus lies on Human-Centered Artificial Intelligence (HCAI) that leverages human knowledge to enhance machine intelligence.
         </p>
         <p>            
-          <b>I will be TAing <a href="http://cars.mit.edu"> MIT 6.S094: Deep Learning for Self-driving Cars</a> and <a href="http://agi.mit.edu"> MIT 6.S099: Artificial General Intelligence</a> in Jan. and Feb. 2018.</b>
+          <b>I will be TAing <a href="http://cars.mit.edu"> MIT 6.S094: Deep Learning for Self-driving Cars</a> and <a href="http://agi.mit.edu"> MIT 6.S099: Artificial General Intelligence</a> in Jan. & Feb. 2018. </b> If you have questions regarding the course, please email us through deepcars [at] mit.edu for 6.S094 or agi [at] mit.edu for 6.S099.
         </p>
+        <!--
         <p>
           My current research involves:         
           <ul>
@@ -83,18 +87,17 @@
             <li>edge case study for image recognition</li>
           </ul>       
          </p>
+         -->
         <p>
-          Prior to joining MIT, I worked on deep learning for human action recognition at University of Rochester. 
+          Prior to joining MIT, I worked on deep learning for human action recognition at University of Rochester (Department of Computer Science). 
         </p>
         <p>
-          In addition, I'm a casual <i>kaggler</i> and fond of playing with different kinds of data. I got a bronze medal (top 6%) in <i>Data Science Bowl 2017</i>.
-        </p>
-        <p>
-          I'm from Shanghai, China. I like photography, electro-funk, all kinds of cuisine, and at the moment, walking and traveling around with <i>Pokémon Go</i>.
+          I'm from Shanghai, China. On a side of fun, I'm a casual <i>Kaggler</i> interested in playing with various kinds of data. 
+          I like photography, electro-funk, all kinds of cuisine, and at the moment, walking and traveling around with <i>Pokémon Go</i>.
         </p>
       </div>
 
-      <div class="three columns" style="margin-top: 0%">
+      <div class="two columns" style="margin-top: 0%">
         <img src="images/profile_long.jpg" style="width:100%">
         <p align="center"><a href="https://github.com/Zephyr-D">Github</a> | <a href="https://www.linkedin.com/in/lding94">LinkedIn</a> | <a href="https://www.kaggle.com/zephyrd">Kaggle</a> <br/>
         liding [at] mit.edu</p>
@@ -103,61 +106,62 @@
     
     <hr>
 
-    <!-- Projects  
+    <!-- Research  
     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-    <h5 style="color:dimgray"><b>Projects</b></h5> 
-    <h6 style="color:dimgray" align="center"><b>Ongoing</b></h6>     
-    <div class="row">
-      <div class="six columns" style="margin-top: 1em">
-        <p align="center"> 
-          <b>Driving Scene Perception</b> <br>
-          <img src="images/proj_seg.gif" style="margin-top: 1em; width:100%">
-        </p>
-      </div>
+    <h5 style="color:dimgray"><b>Research</b></h5> 
+      <!-- Ongoing  
+      –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+      <h6 style="color:dimgray" align="center"><b>Ongoing</b></h6>   
 
-      <div class="six columns" style="margin-top: 1em">
-        <p align="center"> 
-          <b>Pixel-level Tracking with Optical Flow</b> <br>
-          <img src="images/proj_flow.gif" style="margin-top: 1em; width:100%">
-        </p>
-      </div>
-    </div>    
-
-    <div class="row">  
-      <div class="six columns" style="margin-top: 2em">     
-        <p align="center"> 
-          <b>Edge Cases in Image Recognition</b> <br>
-          <img src="images/proj_edge.jpg" style="margin-top: 1em; width:100%">
-        </p>
-      </div>  
-
-      <div class="six columns" style="margin-top: 2em">     
+      <div class="row">
+        <div class="six columns" style="margin-top: 2em">
           <p align="center"> 
-            <b>Weakly Supervised Action Localization</b> <br>
-            <img src="images/proj_act.jpg" style="margin-top: 1em; width:100%">
+            <b>Neural Synthesis</b> <br>
+            <img src="images/proj_art.gif" style="margin-top: 1em; width:100%">
           </p>
-      </div>  
-    </div>    
-    
-    <p><br></p>    
-    <h6 style="color:dimgray" align="center"><b>Past</b></h6>
-
-    <div class="row">  
-      <div class="six columns" style="margin-top: 2em">     
-        <p align="center"> 
-          <b>Lung Cancer Detection</b> <br>
-          <img src="images/proj_lung.jpg" style="margin-top: 1em; width:100%">
-        </p>
-      </div>  
-
-      <div class="six columns" style="margin-top: 2em">     
+        </div>
+        <div class="six columns" style="margin-top: 2em">
           <p align="center"> 
-            <b>Fine-grained Image Classification</b> <br>
-            <img src="images/proj_food.jpg" style="margin-top: 1em; width:100%">
+            <b>Driving Scene Perception</b> <br>
+            <img src="images/proj_seg.gif" style="margin-top: 1em; width:100%">
           </p>
+        </div>
+      </div>    
+
+      <div class="row">  
+        <div class="six columns" style="margin-top: 2em">
+          <p align="center"> 
+            <b>Motion Estimation and Optical Flow</b> <br>
+            <img src="images/proj_flow.gif" style="margin-top: 1em; width:100%">
+          </p>
+        </div>
+        <div class="six columns" style="margin-top: 2em">     
+          <p align="center"> 
+            <b>Edge Cases in Image Recognition</b> <br>
+            <img src="images/proj_edge.jpg" style="margin-top: 1em; width:100%">
+          </p>
+        </div>  
+      </div>    
+
+      <!-- Past  
+      –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+      <p><br></p>    
+      <h6 style="color:dimgray" align="center"><b>Past</b></h6>
+
+      <div class="row">  
+        <div class="six columns" style="margin-top: 2em">     
+            <p align="center"> 
+              <b>Weakly Supervised Action Localization</b> <br>
+              <img src="images/proj_act.jpg" style="margin-top: 1em; width:100%">
+            </p>
+        </div>  
+        <div class="six columns" style="margin-top: 2em">     
+            <p align="center"> 
+              <b>Fine-grained Image Classification</b> <br>
+              <img src="images/proj_food.jpg" style="margin-top: 1em; width:100%">
+            </p>
+        </div> 
       </div> 
-
-    </div>          
 
     <hr>
 
@@ -166,30 +170,53 @@
     <h5 style="color:dimgray"><b>Publications</b></h5>
     
     <div class="row">
-      <div class="two columns" style="margin-top: 1em">
+      <div class="three columns" style="margin-top: 1em">
         <img src="images/pub_avt.jpg" style="margin-top: 0em; width:100%">
       </div>
-      <div class="ten columns" style="margin-top: 1em">
+      <div class="nine columns" style="margin-top: 1em">
         <p><b>MIT Autonomous Vehicle Technology Study: Large-Scale Deep Learning Based Analysis of Driver Behavior and Interaction with Automation</b> <br>
-          [2017 under review] [<a href="https://arxiv.org/abs/1711.06976">arXiv:1711.06976</a>]</p>
+        Lex Fridman, Daniel E. Brown, Michael Glazer, William Angell, Spencer Dodd, Benedikt Jenik, Jack Terwilliger, Julia Kindelsberger, <b>Li Ding</b>, Sean Seaman, Hillary Abraham, Alea Mehler, Andrew Sipperley, Anthony Pettinato, Bobbie Seppelt, Linda Angell, Bruce Mehler, Bryan Reimer <br>
+        [arXiv preprint] [<a href="https://arxiv.org/abs/1711.06976">arXiv:1711.06976</a>]</p>
       </div>
     </div>
 
     <div class="row">  
-      <div class="two columns" style="margin-top: 1em">
+      <div class="three columns" style="margin-top: 1em">
           <img src="images/pub_tricor.jpg" style="margin-top: 0em; width:100%">
         </div>
-        <div class="ten columns" style="margin-top: 1em">
-          <p><b>TricorNet: A Hybrid Temporal Convolutional and Recurrent Network for Video Action Segmentation</b> <br> [2017 under review] [<a href="https://arxiv.org/abs/1705.07818">arXiv:1705.07818</a>]</p>
+        <div class="nine columns" style="margin-top: 1em">
+          <p><b>TricorNet: A Hybrid Temporal Convolutional and Recurrent Network for Video Action Segmentation</b> <br> <b>Li Ding</b>, Chenliang Xu <br>[arXiv preprint] [<a href="https://arxiv.org/abs/1705.07818">arXiv:1705.07818</a>]</p>
         </div>
     </div>
   
     <hr>    
 
+    <!-- Kaggle  
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <h5 style="color:dimgray"><b>Kaggle</b></h5>
+    <p> <img src="images/kagg_level.png" style="height:1em"> Competitions Expert  | Current Rank 1242/75701 (Top 2%)</p>
+
+    <div class="row">  
+      <div class="six columns" style="margin-top: 2em">     
+        <p align="center"> 
+          <b>Satellite Iceberg Detection</b> (<img src="images/kagg_bronze.png" style="height:.8em"> Top 6%) <br>
+          <img src="images/kagg_ice.jpg" style="margin-top: 1em; width:100%">
+        </p>
+      </div>  
+      <div class="six columns" style="margin-top: 2em">     
+        <p align="center"> 
+          <b>Lung Cancer Detection</b> (<img src="images/kagg_bronze.png" style="height:.8em"> Top 6%) <br> 
+          <img src="images/kagg_lung.jpg" style="margin-top: 1em; width:100%">
+        </p>
+      </div> 
+    </div> 
+
+    <hr>    
+
     <!-- Footer  
     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
     <footer class="row">
-      <p align="center" style="margin-top: -2em"><small>Copyright © 2017 Ding, Li | All rights reserved.</small></p>
+      <p align="center" style="margin-top: -2em"><small>Copyright © 2017-2018 Ding, Li</small></p>
     </footer>
 
   </div>
