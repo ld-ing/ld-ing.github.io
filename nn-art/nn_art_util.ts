@@ -18,20 +18,23 @@
 import * as dl from 'deeplearn';
 
 export function createInputAtlas(
-    imageSize: number, inputNumDimensions: number, numLatentVariables: number) {
-  const coords = new Float32Array(imageSize * imageSize * inputNumDimensions);
+    imageWidth: number, imageHeight: number, 
+    inputNumDimensions: number, numLatentVariables: number) {
+  const coords = new Float32Array(imageWidth * imageHeight 
+    * inputNumDimensions);
   let dst = 0;
-  for (let i = 0; i < imageSize * imageSize; i++) {
+  for (let i = 0; i < imageWidth * imageHeight; i++) {
     for (let d = 0; d < inputNumDimensions; d++) {
-      const x = i % imageSize;
-      const y = Math.floor(i / imageSize);
+      const x = i % imageWidth;
+      const y = Math.floor(i / imageWidth);
       const coord = imagePixelToNormalizedCoord(
-          x, y, imageSize, imageSize, numLatentVariables);
+          x, y, imageWidth, imageHeight, numLatentVariables);
       coords[dst++] = coord[d];
     }
   }
 
-  return dl.Array2D.new([imageSize * imageSize, inputNumDimensions], coords);
+  return dl.Array2D.new([imageWidth * imageHeight, 
+    inputNumDimensions], coords);
 }
 
 // Normalizes x, y to -.5 <=> +.5, adds a radius term, and pads zeros with the

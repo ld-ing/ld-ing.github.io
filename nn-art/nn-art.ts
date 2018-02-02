@@ -19,9 +19,9 @@ import {PolymerElement, PolymerHTMLElement} from '../polymer-spec';
 import {ActivationFunction, CPPN} from './cppn';
 
 // const CANVAS_UPSCALE_FACTOR = 1;
-const MAT_WIDTH = 30;
+// const MAT_WIDTH = 40;
 // Standard deviations for gaussian weight initialization.
-const WEIGHTS_STDEV = .6;
+const WEIGHTS_STDEV = .75;
 
 // tslint:disable-next-line:variable-name
 const NNArtPolymer: new () => PolymerHTMLElement = PolymerElement({
@@ -83,6 +83,19 @@ class NNArt extends NNArtPolymer {
     layersCountElement.innerText = this.numLayers.toString();
     this.cppn.setNumLayers(this.numLayers);
 
+    const neuronsSlider =
+        this.querySelector('#neurons-slider') as HTMLInputElement;
+    const neuronsCountElement =
+        this.querySelector('#neurons-count') as HTMLDivElement;
+    neuronsSlider.addEventListener('immediate-value-changed', (event) => {
+      // tslint:disable-next-line:no-any
+      this.MAT_WIDTH = parseInt((event as any).target.immediateValue, 10);
+      neuronsCountElement.innerText = this.MAT_WIDTH.toString();
+      this.cppn.generateWeights(this.MAT_WIDTH, WEIGHTS_STDEV);
+    });
+    this.MAT_WIDTH = parseInt(neuronsSlider.value, 10);
+    neuronsCountElement.innerText = this.MAT_WIDTH.toString();
+
     this.z1Scale = 10;
     this.cppn.setZ1Scale(convertZScale(this.z1Scale));
 
@@ -95,7 +108,7 @@ class NNArt extends NNArtPolymer {
       //this.cppn.generateWeights(MAT_WIDTH, WEIGHTS_STDEV);
     //});
 
-    this.cppn.generateWeights(MAT_WIDTH, WEIGHTS_STDEV);
+    this.cppn.generateWeights(this.MAT_WIDTH, WEIGHTS_STDEV);
     this.cppn.start();
   }
 }

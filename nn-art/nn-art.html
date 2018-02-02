@@ -25,8 +25,23 @@ limitations under the License.
       margin-left: 0px;
       margin-top: 0px;
     }
+    paper-dropdown-menu {
+      --paper-input-container-input-color:white;
+      --paper-input-container-color:grey;
+      --paper-input-container-focus-color:grey;
+    }
+    paper-slider {
+      --paper-slider-active-color: white;
+      --paper-slider-knob-color: white;
+      --paper-slider-pin-color: grey;
+    }
+    paper-listbox {
+      --paper-listbox-background-color:grey;
+      --paper-listbox-color:white;
+    }
   </style>
 <template>
+  <p style="position:absolute; right:1em">Compositional Pattern-Producing Networks (CPPN), powered by <a style="color:white" href="http://blog.otoro.net/2016/03/25/generating-abstract-patterns-with-tensorflow/">otoro</a> & <a style="color:white" href="https://deeplearnjs.org/">deeplearn.js</a></p>
   <canvas id="inference" width=100em></canvas>
   <div class="container" style="position: absolute; top: 1em; left: 3em;">
     <br>
@@ -42,11 +57,17 @@ limitations under the License.
       </paper-dropdown-menu>
     </div>
     <br>
+    <div style="color:dimgrey">Number of layers <div id="layers-count" style="color:black; display:none"></div></div>
+    <paper-slider pin min="1" max="10" value="5" id="layers-slider"></paper-slider>
+    <div style="color:dimgrey">Neurons per layer <div id="neurons-count" style="color:royalblue; display:none"></div></div>
+    <paper-slider pin min="1" max="60" value="30" id="neurons-slider"></paper-slider>
+  <!--
     <div style="color:dimgrey">Number of layers: <div id="layers-count" style="color:black; display: inline-block"></div></div>
-    <paper-slider pin min="0" max="10" value="5" id="layers-slider"></paper-slider>
-    <!--
+    <paper-slider pin min="1" max="10" value="5" id="layers-slider"></paper-slider>
+    <div style="color:dimgrey">Neurons per layer: <div id="neurons-count" style="color:blue; display: inline-block"></div></div>
+    <paper-slider pin min="1" max="60" value="30" id="neurons-slider"></paper-slider>
     <paper-button type="button" id="random">randomize</paper-button>
-    -->
+  -->
     <br><br>
     
   </div>

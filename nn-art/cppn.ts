@@ -54,12 +54,12 @@ export class CPPN {
   private isInferring = false;
 
   constructor(private inferenceCanvas: HTMLCanvasElement) {
-    const canvasSize = Math.round(window.innerWidth/6);
-    this.inferenceCanvas.width = canvasSize;
-    this.inferenceCanvas.height = canvasSize;
+    this.inferenceCanvas.width = Math.round(window.innerWidth/4);
+    this.inferenceCanvas.height = Math.round(window.innerHeight/8);
 
     this.inputAtlas = nn_art_util.createInputAtlas(
-        canvasSize, NUM_IMAGE_SPACE_VARIABLES, NUM_LATENT_VARIABLES);
+      this.inferenceCanvas.width, this.inferenceCanvas.height, 
+      NUM_IMAGE_SPACE_VARIABLES, NUM_LATENT_VARIABLES);
     this.ones = dl.Array2D.ones([this.inputAtlas.shape[0], 1]);
   }
 
@@ -83,7 +83,7 @@ export class CPPN {
           [neuronsPerLayer, neuronsPerLayer], 0, weightsStdev));
     }
     this.lastLayerWeights = dl.Array2D.randTruncatedNormal(
-        [neuronsPerLayer, 3 /** max output channels */], 0, weightsStdev);
+        [neuronsPerLayer, 1 /** max output channels */], 0, weightsStdev);
   }
 
   setActivationFunction(activationFunction: ActivationFunction) {
@@ -135,7 +135,7 @@ export class CPPN {
       }
 
       return lastOutput.matMul(this.lastLayerWeights).sigmoid().reshape([
-        this.inferenceCanvas.height, this.inferenceCanvas.width, 3
+        this.inferenceCanvas.height, this.inferenceCanvas.width, 1
       ]);
     });
 
@@ -157,10 +157,15 @@ async function renderToCanvas(a: dl.Array3D, canvas: HTMLCanvasElement) {
   const data = await a.data();
   for (let i = 0; i < height * width; ++i) {
     const j = i * 4;
-    const k = i * 3;
-    imageData.data[j + 0] = Math.round(255 * data[k + 0]);
-    imageData.data[j + 1] = Math.round(255 * data[k + 1]);
-    imageData.data[j + 2] = Math.round(255 * data[k + 2]);
+    //const k = i * 3;
+    const k = i;
+    const gray = Math.round(255 * data[k]);
+    //imageData.data[j + 0] = Math.round(255 * data[k + 0]);
+    //imageData.data[j + 1] = Math.round(255 * data[k + 1]);
+    //imageData.data[j + 2] = Math.round(255 * data[k + 2]);
+    imageData.data[j + 0] = gray;
+    imageData.data[j + 1] = gray;
+    imageData.data[j + 2] = gray;
     imageData.data[j + 3] = 255;
   }
   ctx.putImageData(imageData, 0, 0);
