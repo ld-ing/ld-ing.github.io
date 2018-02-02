@@ -1,3 +1,4 @@
 private/
-.DS_Store/
+.DS_Store
 .vscode/
+images/.DS_Store
