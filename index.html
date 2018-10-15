@@ -1,8 +1,12 @@
+<!-- 
+  Author: Li Ding
+  Last Update: Oct. 2018
+-->
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-
   <!-- Basic Page Needs
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <meta charset="utf-8">
@@ -39,26 +43,24 @@
 
   <!-- NN-Art
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@0.12.0"> </script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@0.13.0"> </script>
   <script src="cppn.js"> </script>
-
 </head>
 
 <body onload="draw()">
-  <!-- Header (NN-Art)     
+  <!-- Header (NN-Art)     <body onload="draw()">
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <div style="overflow: hidden">
     <canvas id="inference" width="150" height="150" style="top:0px; left:0px"></canvas>
     <p style="position:absolute; right:1em; top:0em">Compositional Pattern-Producing Networks</p>
     <p style="position:absolute; right:1em; top:1.2em">
-      Source: 
-      <a href="https://github.com/Zephyr-D/cppn-tfjs">code</a>, 
-      <a href="http://eplex.cs.ucf.edu/papers/stanley_gpem07.pdf">CPPN</a>, 
-      <a href="http://blog.otoro.net/2016/03/25/generating-abstract-patterns-with-tensorflow/">otoro</a>, 
+      Source:
+      <a href="https://github.com/Zephyr-D/Zephyr-D.github.io/blob/master/cppn.js">code</a>,
+      <a href="http://eplex.cs.ucf.edu/papers/stanley_gpem07.pdf">CPPN</a>,
+      <a href="http://blog.otoro.net/2016/03/25/generating-abstract-patterns-with-tensorflow/">otoro</a>,
       <a href="https://js.tensorflow.org/">TensorFlow.js</a></p>
-    <p style="position:absolute; left:1.2em; top:0.3em; font-size:0.8em">Resolution</p>
-    <input type="range" min="10" max="100" value="20" class="slider" id="cppnslider"
-    style="top:1.6em; left:1em; position:absolute; opacity:0.4; background:transparent;">
+    <p id="fps" style="position:absolute; left:1.2em; top:0.3em; font-size:0.8em"></p>
+    <input type="range" min="1" max="30" value="10" class="slider" id="cppnslider" style="top:1.6em; left:1em; position:absolute; opacity:0.4; background:transparent;">
   </div>
 
   <!-- Primary Page Layout
@@ -85,29 +87,33 @@
     <div class="row">
       <div class="ten columns" style="margin-top: 0%">
         <p>
-          <b>I'm currently a Research Engineer at MIT, working on deep learning for scene perception and vision-based control of autonomous vehicles.</b> 
-          Our research (involving 
+          <b>I'm currently a Research Engineer at MIT, working on deep learning for driving scene perception and
+            vision-based control of autonomous vehicles.</b>
+          Our research (involving
           <a href="http://lexfridman.com/">Dr. Lex Fridman</a>
           and colleagues) focuses on
-          <a href="https://hcai.mit.edu/">Human-Centered Artificial Intelligence (HCAI)</a> 
+          <a href="https://hcai.mit.edu/">Human-Centered Artificial Intelligence (HCAI)</a>
           that leverages human knowledge to enhance machine intelligence.
         </p>
         <p>
           I TAed
           <a href="http://selfdrivingcars.mit.edu"> MIT 6.S094: Deep Learning for Self-Driving Cars</a> (Jan. 2018)
-           & 
-          <a href="http://agi.mit.edu"> MIT 6.S099: Artificial General Intelligence</a> (Feb. 2018). 
+          &
+          <a href="http://agi.mit.edu"> MIT 6.S099: Artificial General Intelligence</a> (Feb. 2018).
           If you have questions regarding the courses, please email us via
-          deepcars [at] mit.edu / agi [at] mit.edu, respectively.
+          <u>deepcars [at] mit.edu</u> / <u>agi [at] mit.edu</u>, respectively.
         </p>
         <p>
-          Prior to joining MIT, I was a Research Associate at University of Rochester (Dept. of Computer Science) after graduating with M.S. in Data Science.
-          I did research on human action recognition with 
-          <a href="https://www.cs.rochester.edu/~cxu22/">Prof. Chenliang Xu</a>. 
+          Prior to joining MIT, I was a Research Associate at University of Rochester, after graduating with M.S.
+          degree
+          in Data Science.
+          I did research on human action recognition with
+          <a href="https://www.cs.rochester.edu/~cxu22/">Prof. Chenliang Xu</a>.
         </p>
         <p>
           I'm from Shanghai, China. On a side of fun, I'm a casual
-          <i>Kaggler</i> interested in playing with various kinds of data. I like photography, art, electro-funk, all kinds of cuisine,
+          <i>Kaggler</i> interested in playing with various kinds of data. I like photography, art, electro-funk, all
+          kinds of cuisine,
           and at the moment, traveling around with
           <i>Pokémon Go</i>.
         </p>
@@ -121,7 +127,7 @@
           <a href="https://www.linkedin.com/in/lding94">LinkedIn</a> <br>
           <a href="materials/cv.pdf">CV</a> <br>
         </p>
-        <p style="font-size:0.8em; color:gray" align="center">Last updated on 2018/07/28</p>
+        <p style="font-size:0.8em; color:gray" align="center">Last updated on 2018/10/14</p>
       </div>
     </div>
 
@@ -133,93 +139,182 @@
       <b>Research</b>
     </h5>
 
-    <!-- Ongoing  
+    <!-- 2018  
       –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-    <h6 style="color:dimgray" align="center">
-      <b>Ongoing</b>
+    <h6 style="color:dimgray; margin-left: 2em">
+      <b>2018</b>
     </h6>
 
-    <div class="row">
-
-      <div class="six columns" style="margin-top: 1em">
-        <p align="center">
-          <b>End-to-end Steering Control</b>
-          <br>
-          <video width="90%" style="margin-top: 1em" autoplay loop muted>
-            <source src="images/proj_e2e.mp4" type="video/mp4">
-          </video>
-        </p>
-      </div>
-
-      <div class="six columns" style="margin-top: 1em">
-        <p align="center">
-          <b>Driving Scene Perception</b>
-          <br>
-          <video width="90%" style="margin-top: 1em" autoplay loop muted>
-            <source src="images/proj_seg.mp4" type="video/mp4">
-          </video>
-        </p>
-      </div>
-
-    </div>
-
-    <div class="row">
-
-      <div class="six columns" style="margin-top: 1em">
-        <p align="center">
-          <b>Neural Art Synthesis</b>
-          <br>
-          <video width="90%" style="margin-top: 1em" autoplay loop muted>
-              <source src="images/proj_art.mp4" type="video/mp4">
-          </video>
-        </p>
-      </div>
-
-      <div class="six columns" style="margin-top: 1em">
-        <p align="center">
-          <b>Dynamic Scene and Optical Flow</b>
-          <br>
-          <video width="90%" style="margin-top: 1em" autoplay loop muted>
-              <source src="images/proj_flow.mp4" type="video/mp4">
-          </video>
-        </p>
-      </div>
-
-    </div>
-
-    <!-- Past  
-      –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-    <p>
-      <br>
+    <p align="center">
+      <b>MIT Human-Centered Autonomous Vehicle</b>
     </p>
-    <h6 style="color:dimgray" align="center">
-      <b>Past</b>
-    </h6>
-
-    <div class="row">
-      <div class="six columns" style="margin-top: 1em">
-        <p align="center">
-          <b>Weakly Supervised Action Localization</b>
-          <br>
-          <img src="images/proj_act.jpg" style="margin-top: 1em; width:90%">
-        </p>
+    <div class="row" style="display: flex; align-items: center">
+      <div class="six columns">
+        <video width="95%" autoplay loop muted>
+          <source src="images/proj_hcav.mp4" type="video/mp4">
+        </video>
       </div>
-      <div class="six columns" style="margin-top: 1em">
-        <p align="center">
-          <b>Edge Cases in Image Recognition</b>
-          <br>
-          <img src="images/proj_edge.jpg" style="margin-top: 1em; width:90%">
+      <div class="six columns">
+        <p>
+          The interaction between human and machine with growing intelligence challenges our assumptions about the
+          limitations of human beings at their worst and the capabilities of AI systems at their best. We explore
+          Human-Centered Autonomous vehicle as an illustrative case study of concepts in shared autonomy.<br>
+          More on <a href="https://hcai.mit.edu/hcav/">project page</a>.
         </p>
       </div>
     </div>
+    <br>
+
+    <p align="center">
+      <b>Arguing Machines: Human Supervision of Black Box AI Systems</b>
+    </p>
+    <div class="row" style="display: flex; align-items: center">
+      <div class="six columns">
+        <p>
+          We consider the paradigm of a black box AI system that makes life-critical decisions. By proposing an
+          “arguing machines” framework, we show that the disagreement between the two AI systems, without any knowledge
+          of underlying system design or operation, is sufficient to arbitrarily improve the accuracy of the overall
+          decision pipeline if given human supervision over disagreements. <br>
+          More on <a href="https://hcai.mit.edu/arguing-machines/">project page</a>.
+        </p>
+      </div>
+      <div class="six columns">
+        <img src="images/proj_argue.jpg" style="width:95%">
+      </div>
+    </div>
+    <br>
+
+
+    <p align="center">
+      <b>Transfer of Control in Racing Simulation</b>
+    </p>
+    <div class="row" style="display: flex; align-items: center">
+      <div class="six columns">
+        <video width="95%" autoplay loop muted>
+          <source src="images/proj_e2e.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="six columns">
+        <p>
+          A racing simulation environment with fully functioned end-to-end autonomous driving system is developed
+          based
+          on <i>Forza Motorsport 7</i>. We study the fundamental behavior in transfer of control between human and
+          machine.
+        </p>
+      </div>
+    </div>
+    <br>
+
+    <p align="center">
+      <b>Dynamic Scene and Optical Flow</b>
+    </p>
+    <div class="row" style="display: flex; align-items: center">
+      <div class="six columns">
+        <p>
+          Single-frame-based algorithms ignore the rich information contained in the dynamics of moving scene, which is
+          usually too noisy or abstract to utilize. We study how motion representations such as optical flow can be
+          used to help scene understanding. <br>
+          More on <a href="https://selfdrivingcars.mit.edu/segfuse">project page</a>.
+        </p>
+      </div>
+      <div class="six columns">
+        <video width="95%" style="margin-top: 0em" autoplay loop muted>
+          <source src="images/proj_flow.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+    <br>
+
+
+    <!-- 2017  
+      –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <h6 style="color:dimgray; margin-left: 2em">
+      <b>2017</b>
+    </h6>
+
+    <p align="center">
+      <b>Scene Segmentation and Large-Scale Annotation</b>
+    </p>
+    <div class="row" style="display: flex; align-items: center">
+      <div class="six columns">
+        <video width="95%" style="margin-top: 0em" autoplay loop muted>
+          <source src="images/proj_seg.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="six columns">
+        <p>
+          We adopt the latest semantic segmentation techniques and modify the architecture to fit into the task of
+          driving scene perception.
+          We also explore ways to improve accuracy and robustness, such as edge case discovery and more efficient
+          annotation methodology.
+        </p>
+      </div>
+    </div>
+    <br>
+
+    <p align="center">
+      <b>Fully / Weakly Supervised Action Localization</b>
+    </p>
+    <div class="row" style="display: flex; align-items: center">
+      <div class="six columns">
+        <p>
+          We propose a new action classification model and a novel iterative alignment approach to address
+          weakly supervised action localization task that only require the transcript to learn the exact time
+          of actions. <br>
+          More in our <a href="materials/1803.10699.pdf">CVPR '18 paper</a> with
+          <a href="https://github.com/Zephyr-D/TCFPN-ISBA">code</a> available on Github.
+        </p>
+      </div>
+      <div class="six columns">
+        <img src="images/proj_act.jpg" style="width:95%">
+      </div>
+    </div>
+    <br>
 
     <hr>
 
     <!-- Publication
-    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+–––––––––––––––––––––––––––––––––––––––––––––––––– -->
     <h5 style="color:dimgray">
       <b>Publication</b>
     </h5>
+
+    <div class="row">
+      <div class="three columns" style="margin-top: 1em">
+        <img src="images/proj_argue.jpg" style="margin-top: 0em; width:100%">
+      </div>
+      <div class="nine columns" style="margin-top: 1em">
+        <p>
+          <b>Arguing Machines: Human Supervision of Black Box AI Systems That Make Life-Critical Decisions</b>
+          <br>
+          Lex Fridman, <b>Li Ding</b>, Benedikt Jenik, Bryan Reimer
+          <br>
+          [under review]
+          [<a href="materials/1710.04459.pdf">pdf</a>]
+          [<a href="https://arxiv.org/abs/1710.04459">arXiv</a>]
+        </p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="three columns" style="margin-top: 1em">
+        <img src="images/pub_avt.jpg" style="margin-top: 0em; width:100%">
+      </div>
+      <div class="nine columns" style="margin-top: 1em">
+        <p>
+          <b>MIT Autonomous Vehicle Technology Study: Large-Scale Deep Learning Based Analysis of Driver
+            Behavior and Interaction with Automation</b>
+          <br>
+          Lex Fridman, Daniel E. Brown, Michael Glazer, William Angell, Spencer Dodd, Benedikt Jenik, Jack
+          Terwilliger, Julia Kindelsberger, <b>Li Ding</b>, Sean Seaman, Hillary Abraham, Alea Mehler, Andrew
+          Sipperley, Anthony Pettinato, Bobbie Seppelt, Linda Angell, Bruce Mehler, Bryan Reimer
+          <br>
+          [under review]
+          [<a href="materials/1711.06976.pdf">pdf</a>]
+          [<a href="https://arxiv.org/abs/1711.06976">arXiv</a>]
+        </p>
+      </div>
+    </div>
 
     <div class="row">
       <div class="three columns" style="margin-top: 1em">
@@ -231,31 +326,14 @@
           <br>
           <b>Li Ding</b>, Chenliang Xu
           <br>[CVPR '18]
-          [<a href="materials/1803.10699.pdf">pdf</a>] 
-          [<a href="https://arxiv.org/abs/1803.10699">arXiv</a>] 
-          [<a href="https://github.com/Zephyr-D/TCFPN-ISBA">code</a>] 
-          [<a href="materials/cvpr18-poster.pdf">poster</a>] 
+          [<a href="materials/1803.10699.pdf">pdf</a>]
+          [<a href="https://arxiv.org/abs/1803.10699">arXiv</a>]
+          [<a href="https://github.com/Zephyr-D/TCFPN-ISBA">code</a>]
+          [<a href="materials/cvpr18-poster.pdf">poster</a>]
         </p>
       </div>
     </div>
 
-    <div class="row">
-      <div class="three columns" style="margin-top: 1em">
-        <img src="images/pub_avt.jpg" style="margin-top: 0em; width:100%">
-      </div>
-      <div class="nine columns" style="margin-top: 1em">
-        <p>
-          <b>MIT Autonomous Vehicle Technology Study: Large-Scale Deep Learning Based Analysis of Driver Behavior and Interaction
-            with Automation</b>
-          <br> Lex Fridman, Daniel E. Brown, Michael Glazer, William Angell, Spencer Dodd, Benedikt Jenik, Jack Terwilliger,
-          Julia Kindelsberger,
-          <b>Li Ding</b>, Sean Seaman, Hillary Abraham, Alea Mehler, Andrew Sipperley, Anthony Pettinato, Bobbie Seppelt, Linda
-          Angell, Bruce Mehler, Bryan Reimer
-          <br>
-          [<a href="materials/1711.06976.pdf">pdf</a>]
-          [<a href="https://arxiv.org/abs/1711.06976">arXiv</a>]</p>
-      </div>
-    </div>
 
     <div class="row">
       <div class="three columns" style="margin-top: 1em">
@@ -267,15 +345,17 @@
           <br>
           <b>Li Ding</b>, Chenliang Xu
           <br>
+          [arXiv Report]
           [<a href="materials/1705.07818.pdf">pdf</a>]
-          [<a href="https://arxiv.org/abs/1705.07818">arXiv</a>]</p>
+          [<a href="https://arxiv.org/abs/1705.07818">arXiv</a>]
+        </p>
       </div>
     </div>
 
     <hr>
 
     <!-- Service 
-    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+–––––––––––––––––––––––––––––––––––––––––––––––––– -->
     <h5 style="color:dimgray">
       <b>Service</b>
     </h5>
@@ -286,33 +366,16 @@
     <div class="row">
       <div class="six columns" style="margin-top: 1em">
         <p align="center">
-          <b>
-            <a href="http://cars.mit.edu"> MIT 6.S094: Deep Learning for Self-Driving Cars</a>
-          </b>
+          <a href="http://cars.mit.edu"><b>MIT 6.S094: Deep Learning for Self-Driving Cars</b></a>
+          <br>(Winter 2018)<br>
+          <img src="images/ta_dlsdc.jpg" style="margin-top: 1em; width:80%">
         </p>
       </div>
       <div class="six columns" style="margin-top: 1em">
         <p align="center">
-          <b>
-            <a href="http://agi.mit.edu"> MIT 6.S099: Artificial General Intelligence</a>
-          </b>
-        </p>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="six columns" style="margin-top: -1em">
-        <p align="center">
-          (Winter 2018)
-          <br>
-          <img src="images/ta_dlsdc.png" style="margin-top: 1em; width:80%">
-        </p>
-      </div>
-      <div class="six columns" style="margin-top: -1em">
-        <p align="center">
-          (Winter 2018)
-          <br>
-          <img src="images/ta_agi.png" style="margin-top: 1em; width:80%">
+          <a href="http://agi.mit.edu"> <b>MIT 6.S099: Artificial General Intelligence</b></a>
+          <br>(Winter 2018)<br>
+          <img src="images/ta_agi.jpg" style="margin-top: 1em; width:80%">
         </p>
       </div>
     </div>
@@ -331,13 +394,14 @@
     <hr>
 
     <!-- Kaggle  
-    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+–––––––––––––––––––––––––––––––––––––––––––––––––– -->
     <h5 style="color:dimgray">
       <b>Kaggle</b>
     </h5>
     <p>
       <b>Level:
-        <img src="images/kagg_level.png" style="height:1em"> Competitions Expert</b> (highest rank: 1169<sup>th</sup> |
+        <img src="images/kagg_level.png" style="height:1em"> Competitions Expert</b> (highest rank: 1169<sup>th</sup>
+      |
       <a href="https://www.kaggle.com/zephyrd">current rank</a>)</p>
 
     <div class="row">
@@ -371,12 +435,12 @@
 
     <p align="middle">Thanks for visiting!</p>
 
-    <script type='text/javascript' id='clustrmaps' src='//cdn.clustrmaps.com/map_v2.js?cl=ffffff&w=400&t=tt&d=gCQRdA5C7TG7XJG9P_tMaYunDm-5RUkgWx0XhdLbtmU&co=3d6dff&cmo=00ffbc&cmn=ffef00&ct=ffffff'></script>
+    <script type='text/javascript' id='clustrmaps' src='//cdn.clustrmaps.com/map_v2.js?cl=ffffff&w=320&t=tt&d=gCQRdA5C7TG7XJG9P_tMaYunDm-5RUkgWx0XhdLbtmU&co=3d6dff&cmo=00ffbc&cmn=ffef00&ct=ffffff'></script>
 
     <hr>
 
     <!-- Footer  
-    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+–––––––––––––––––––––––––––––––––––––––––––––––––– -->
     <footer class="row">
       <p align="center" style="margin-top: -2em">
         <small>Copyright © 2017-2018 Ding, Li</small>
@@ -384,9 +448,7 @@
     </footer>
 
   </div>
-
   <!-- End Document
 –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 </body>
-
 </html>
