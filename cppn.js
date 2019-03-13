@@ -29,69 +29,76 @@ function draw() {
 
   // build cppn model
   function build(h, w) {
-    let x = tf.range(0, 4 * w, 4);
+    let x = tf.range(0, w, 1);
     x = x.tile([h]).reshape([h, w, 1]);
-    x = x.div(w).sub(2)
-    let y = tf.range(0, 2 * h, 2);
+    x = x.div(w).mul(6).sub(3)
+    let y = tf.range(0, h, 1);
     y = y.tile([w]).reshape([w, h, 1]).transpose([1, 0, 2]);
-    y = y.div(h).sub(1)
+    y = y.div(h).mul(2).sub(1)
     const r = tf.sqrt(x.pow(2).add(y.pow(2)));
     const input = tf.concat([x, y, r], -1).reshape([1, h, w, 3]);
-    let model = tf.sequential();
-    model.add(tf.layers.conv2d({
+    const model_input = tf.input({shape: [h, w, 11]})
+    const conv1 = tf.layers.conv2d({
       inputShape: [h, w, 11],
       kernelSize: 1,
-      filters: 16,
+      filters: 8,
       strides: 1,
       activation: 'tanh',
+      padding: 'same',
       kernelInitializer: tf.initializers.randomNormal({ mean: 0, stddev: 2 }),
-      useBias: true
-    }));
-    model.add(tf.layers.conv2d({
+      useBias: false
+    }).apply(model_input);
+    const conv2 = tf.layers.conv2d({
       kernelSize: 1,
       filters: 16,
       strides: 1,
       activation: 'tanh',
+      padding: 'same',
       kernelInitializer: tf.initializers.randomNormal({ mean: 0, stddev: 2 }),
-      useBias: true
-    }));
-    model.add(tf.layers.conv2d({
+      useBias: false
+    }).apply(conv1);
+    const conv3 = tf.layers.conv2d({
       kernelSize: 1,
-      filters: 16,
+      filters: 32,
       strides: 1,
       activation: 'tanh',
+      padding: 'same',
       kernelInitializer: tf.initializers.randomNormal({ mean: 0, stddev: 2 }),
-      useBias: true
-    }));
-    model.add(tf.layers.conv2d({
+      useBias: false
+    }).apply(conv2);
+    const conv4 = tf.layers.conv2d({
       kernelSize: 1,
       filters: 1,
       strides: 1,
-      activation: 'sigmoid',
-      kernelInitializer: tf.initializers.randomNormal({ mean: 0, stddev: 1 }),
+      padding: 'same',
+      kernelInitializer: tf.initializers.randomNormal({ mean: 0, stddev: 2 }),
       useBias: false
-    }));
+    }).apply(conv3);
+    //const output = tf.layers.activation({activation:'sigmoid'}).apply(sub);
+    let model = tf.model({inputs: model_input, outputs: conv4});
     return [input, model];
   };
 
   // change the canvas by step
   function iter() {
     img.assign(model.predict(tf.concat([input, zstart], -1)).squeeze());
+    img.assign(tf.sigmoid(img.sub(tf.mean(img)).add(4)));
     zstart.assign(zstart.add(dis));
     step++;
-    if (step > fps * 10.) {
-      dis.assign(tf.ones([1, h, w, 8]).mul(tf.randomUniform([8], -1, 1)).sub(zstart));
-      dis.assign(dis.div(tf.scalar(fps * 10.)));  // take 10s from z1 to z2
+    if (step > fps * 15.) {
+      dis.assign(tf.ones([1, h, w, 8]).mul(tf.randomUniform([8], -2, 2)).sub(zstart));
+      dis.assign(dis.div(tf.scalar(fps * 15.)));  // take 15s from z1 to z2
       step = 0;
     };
   }
 
   // reset image change rate if fps slider is changed
   function change() {
-    dis.assign(tf.ones([1, h, w, 8]).mul(tf.randomUniform([8], -1, 1)).sub(zstart));
-    dis.assign(dis.div(tf.scalar(fps * 10.)));
+    dis.assign(tf.ones([1, h, w, 8]).mul(tf.randomUniform([8], -2, 2)).sub(zstart));
+    dis.assign(dis.div(tf.scalar(fps * 15.)));
     step = 0;
     img.assign(model.predict(tf.concat([input, zstart], -1)).squeeze());
+    img.assign(tf.sigmoid(img.sub(tf.mean(img)).add(4)));
   }
 
   // change the canvas by step
@@ -120,10 +127,11 @@ function draw() {
       input = tf.variable(cppn[0]);
       model = cppn[1]
 
-      zstart = tf.variable(tf.ones([1, h, w, 8]).mul(tf.randomUniform([8], -1, 1)));
-      dis = tf.variable(tf.ones([1, h, w, 8]).mul(tf.randomUniform([8], -1, 1)).sub(zstart));
-      dis.assign(dis.div(tf.scalar(fps * 10.)));  // take 10s from z1 to z2
+      zstart = tf.variable(tf.ones([1, h, w, 8]).mul(tf.randomUniform([8], -2, 2)));
+      dis = tf.variable(tf.ones([1, h, w, 8]).mul(tf.randomUniform([8], -2, 2)).sub(zstart));
+      dis.assign(dis.div(tf.scalar(fps * 15.)));  // take 15s from z1 to z2
       img = tf.variable(model.predict(tf.concat([input, zstart], -1)).squeeze());
+      img.assign(tf.sigmoid(img.sub(tf.mean(img)).add(4)));
       step = 0;
     };
   }
@@ -132,10 +140,11 @@ function draw() {
   cppn = tf.tidy(() => { return build(h, w) });
   input = tf.variable(cppn[0]);
   model = cppn[1];
-  zstart = tf.variable(tf.ones([1, h, w, 8]).mul(tf.randomUniform([8], -1, 1)));
-  dis = tf.variable(tf.ones([1, h, w, 8]).mul(tf.randomUniform([8], -1, 1)).sub(zstart));
-  dis.assign(dis.div(tf.scalar(fps * 10.)));  // take 10s from z1 to z2
+  zstart = tf.variable(tf.ones([1, h, w, 8]).mul(tf.randomUniform([8], -2, 2)));
+  dis = tf.variable(tf.ones([1, h, w, 8]).mul(tf.randomUniform([8], -2, 2)).sub(zstart));
+  dis.assign(dis.div(tf.scalar(fps * 15.)));  // take 15s from z1 to z2
   img = tf.variable(model.predict(tf.concat([input, zstart], -1)).squeeze());
+  img.assign(tf.sigmoid(img.sub(tf.mean(img)).add(4)));
   step = 0;
 
   // iterate forever
