@@ -47,20 +47,25 @@
   <script src="cppn.js"> </script>
 </head>
 
-<body onload="draw()">
+<body onload="init()">
   <!-- Header (NN-Art)     <body onload="draw()">
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <div style="overflow: hidden">
     <canvas id="inference" width="150" height="150" style="top:0px; left:0px"></canvas>
-    <p style="position:absolute; right:1em; top:0em">Compositional Pattern-Producing Networks</p>
-    <p style="position:absolute; right:1em; top:1.2em">
+    <input type="button"
+      style="top:1em; left:1em; position:absolute; opacity:0.8; background:transparent;font-size: .7em; padding: 0em 2em;"
+      value="repaint" onclick="draw()">
+  </div>
+
+  <div style="overflow: hidden">
+    <p style="position:absolute; right:1em; top:0em; color:dimgray; font-size: .9em;">Compositional Pattern-Producing
+      Networks</p>
+    <p style="position:absolute; right:1em; top:1.2em; color:dimgray;font-size: .9em;">
       Sources:
       <a href="https://github.com/Zephyr-D/Zephyr-D.github.io/blob/master/cppn.js" target="_blank">code</a>,
       <a href="http://eplex.cs.ucf.edu/papers/stanley_gpem07.pdf" target="_blank">paper</a>,
       <a href="http://blog.otoro.net/2016/03/25/generating-abstract-patterns-with-tensorflow/" target="_blank">blog</a>,
       <a href="https://js.tensorflow.org/" target="_blank">TensorFlow.js</a></p>
-    <p id="fps" style="position:absolute; left:1.2em; top:0.3em; font-size:0.8em"></p>
-    <input type="range" min="1" max="30" value="1" class="slider" id="cppnslider" style="top:1.6em; left:1em; position:absolute; opacity:0.4; background:transparent;">
   </div>
 
   <!-- Primary Page Layout
@@ -87,23 +92,27 @@
     <div class="row">
       <div class="nine columns" style="margin-top: 0%">
         <p>
-          <b>I'm currently a Research Engineer at MIT, working on deep learning for autonomous vehicles.</b>
+          <b>I'm a Research Engineer at MIT, working on deep learning for autonomous vehicles.</b>
           Our research (led by
           <a href="http://lexfridman.com/" target="_blank">Dr. Lex Fridman</a>) focuses on
           <a href="https://hcai.mit.edu/" target="_blank">Human-Centered Artificial Intelligence (HCAI)</a>
-          that leverages both natural human intelligence and large-scale machine (deep) learning to explore the future of human-machine collaboration.
+          that leverages both natural human intelligence and large-scale machine (deep) learning to explore the future
+          of human-machine collaboration.
         </p>
         <p>
-          I also TA a few <a href="http://deeplearning.mit.edu" target="_blank">deep learning related courses</a> at MIT, including 6.S094: <a href="http://cars.mit.edu" target="_blank">Deep Learning for Self-Driving Cars</a>, etc.. 
+          I also TA a few <a href="http://deeplearning.mit.edu" target="_blank">deep learning related courses</a> at
+          MIT, including 6.S094: <a href="http://cars.mit.edu" target="_blank">Deep Learning for Self-Driving Cars</a>,
+          etc..
           If you have questions regarding these courses, please email us via <u>hcai [at] mit.edu</u>.
         </p>
         <p>
-          Prior to joining MIT, I was a Research Associate at University of Rochester, doing research on human action recognition with
+          Prior to joining MIT, I was a Research Associate at University of Rochester, doing research on human action
+          recognition with
           <a href="https://www.cs.rochester.edu/~cxu22/" target="_blank">Prof. Chenliang Xu</a>.
         </p>
         <p>
           I'm from Shanghai, China. On a side of fun, I'm a casual
-          <i>Kaggler</i> who is interested in playing with various kinds of data. 
+          <i>Kaggler</i> who is interested in playing with various kinds of data.
           I like photography, modern art, electro-funk, and at the moment, traveling around the world with
           <i>Pokémon Go</i>.
         </p>
@@ -117,7 +126,7 @@
           <a href="https://www.linkedin.com/in/lding94" target="_blank">LinkedIn</a> <br>
           <a href="http://bit.ly/2O1XXKE" target="_blank">CV</a> <br>
         </p>
-        <p style="font-size:0.8em; color:gray" align="center">Last updated on 2019/3/11</p>
+        <p style="font-size:0.8em; color:dimgray" align="center">Last updated on 2019/3/11</p>
       </div>
     </div>
 
@@ -186,9 +195,10 @@
       <div class="six columns">
         <p>
           A racing simulation environment with fully functioned end-to-end autonomous driving system is developed
-          based on 
-          <i>Forza Motorsport 7</i>. 
-          We study the fundamental behavior in collaborative vehicle control between human players and autonomous driving algorithms.
+          based on
+          <i>Forza Motorsport 7</i>.
+          We study the fundamental behavior in collaborative vehicle control between human players and autonomous
+          driving algorithms.
         </p>
       </div>
     </div>
@@ -283,7 +293,7 @@
         </p>
       </div>
     </div>
-    
+
     <div class="row">
       <div class="three columns" style="margin-top: 1em">
         <img src="images/proj_argue.jpg" style="margin-top: 0em; width:100%">
@@ -369,13 +379,15 @@
     </h6>
 
     <p>
-      <b>6.S094:</b> <a href="http://cars.mit.edu" target="_blank">Deep Learning for Self-Driving Cars</a> (Winter IAP 2018 & 2019)
+      <b>6.S094:</b> <a href="http://cars.mit.edu" target="_blank">Deep Learning for Self-Driving Cars</a> (Winter IAP
+      2018 & 2019)
       <br>
       <b>6.S091:</b> Deep Reinforcement Learning (Winter IAP 2019).
       <br>
       <b>6.S093:</b> Human-Centered Artificial Intelligence (Winter IAP 2019).
       <br>
-      <b>6.S099:</b> <a href="http://agi.mit.edu" target="_blank"> Artificial General Intelligence</a> (Winter IAP 2018).
+      <b>6.S099:</b> <a href="http://agi.mit.edu" target="_blank"> Artificial General Intelligence</a> (Winter IAP
+      2018).
     </p>
 
     <h6 style="color:dimgray" align="center">
@@ -430,7 +442,8 @@
 
     <p align="middle">Thanks for visiting!</p>
 
-    <script type='text/javascript' id='clustrmaps' src='//cdn.clustrmaps.com/map_v2.js?cl=ffffff&w=320&t=tt&d=gCQRdA5C7TG7XJG9P_tMaYunDm-5RUkgWx0XhdLbtmU&co=3d6dff&cmo=00ffbc&cmn=ffef00&ct=ffffff'></script>
+    <script type='text/javascript' id='clustrmaps'
+      src='//cdn.clustrmaps.com/map_v2.js?cl=ffffff&w=320&t=tt&d=gCQRdA5C7TG7XJG9P_tMaYunDm-5RUkgWx0XhdLbtmU&co=3d6dff&cmo=00ffbc&cmn=ffef00&ct=ffffff'></script>
 
     <hr>
 
@@ -446,4 +459,5 @@
   <!-- End Document
 –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 </body>
+
 </html>
