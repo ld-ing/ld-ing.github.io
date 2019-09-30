@@ -26,11 +26,11 @@ function build(h, w) {
   const conv1 = tf.layers.conv2d({
     inputShape: [h, w, 11],
     kernelSize: 1,
-    filters: 32,
+    filters: 16,
     strides: 1,
     activation: 'tanh',
     padding: 'same',
-    kernelInitializer: tf.initializers.randomNormal({ mean: 0, stddev: 3 }),
+    kernelInitializer: tf.initializers.randomNormal({ mean: 0, stddev: 2 }),
     useBias: false
   }).apply(model_input);
   const conv2 = tf.layers.conv2d({
@@ -51,23 +51,14 @@ function build(h, w) {
     kernelInitializer: tf.initializers.randomNormal({ mean: 0, stddev: 2 }),
     useBias: false
   }).apply(conv2);
-  const conv4 = tf.layers.conv2d({
-    kernelSize: 1,
-    filters: 32,
-    strides: 1,
-    activation: 'tanh',
-    padding: 'same',
-    kernelInitializer: tf.initializers.randomNormal({ mean: 0, stddev: 1 }),
-    useBias: false
-  }).apply(conv3);
   const conv5 = tf.layers.conv2d({
     kernelSize: 1,
     filters: 1,
     strides: 1,
     padding: 'same',
-    kernelInitializer: tf.initializers.randomNormal({ mean: 0, stddev: 1 }),
+    kernelInitializer: tf.initializers.randomNormal({ mean: 0, stddev: 1.6 }),
     useBias: false
-  }).apply(conv4);
+  }).apply(conv3);
   //const output = tf.layers.activation({activation:'sigmoid'}).apply(sub);
   let model = tf.model({ inputs: model_input, outputs: conv5 });
   return [input, model];
