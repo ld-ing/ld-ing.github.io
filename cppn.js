@@ -16,7 +16,7 @@ var canvas, ctx, w, h, cppn, model, input, zstart, img;
 function build(h, w) {
   let x = tf.range(0, w, 1);
   x = x.tile([h]).reshape([h, w, 1]);
-  x = x.div(w).mul(6).sub(3)
+  x = x.div(w).mul(8).sub(4)
   let y = tf.range(0, h, 1);
   y = y.tile([w]).reshape([w, h, 1]).transpose([1, 0, 2]);
   y = y.div(h).mul(2).sub(1)
@@ -26,7 +26,7 @@ function build(h, w) {
   const conv1 = tf.layers.conv2d({
     inputShape: [h, w, 11],
     kernelSize: 1,
-    filters: 16,
+    filters: 32,
     strides: 1,
     activation: 'tanh',
     padding: 'same',
@@ -56,7 +56,7 @@ function build(h, w) {
     filters: 1,
     strides: 1,
     padding: 'same',
-    kernelInitializer: tf.initializers.randomNormal({ mean: 0, stddev: 1.6 }),
+    kernelInitializer: tf.initializers.randomNormal({ mean: 0, stddev: 2 }),
     useBias: false
   }).apply(conv3);
   //const output = tf.layers.activation({activation:'sigmoid'}).apply(sub);
@@ -89,7 +89,7 @@ function init() {
   img.assign(tf.sigmoid(img.sub(tf.mean(img)).add(1)));
   //step = 0;
   //ctx.fillRect(0, 0, canvas.width, canvas.height);
-  tf.toPixels(img, canvas);
+  tf.browser.toPixels(img, canvas);
 };
 
 function iter() {
@@ -103,5 +103,5 @@ function iter() {
 
 function draw() {
   tf.tidy(iter);
-  tf.toPixels(img, canvas);
+  tf.browser.toPixels(img, canvas);
 }
