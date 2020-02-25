@@ -1,4 +1,6 @@
 User-agent: *
 Disallow: /materials/
 Disallow: /images/
-
+Disallow: /css/
+Disallow: /blogs/
+Disallow: /js/
