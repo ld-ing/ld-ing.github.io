@@ -124,16 +124,15 @@
     <b><img src="images/kagg_level.png" style="height:.9em"> Competitions
       Expert</b> (highest rank: 1196<sup>th</sup> |
     <a href="https://www.kaggle.com/zephyrd" target="_blank">current rank</a>)
+  </p>
 
-    <br><br>
-
+  <p>
     <a href="https://www.kaggle.com" target="_blank">Kaggle</a> is an online
     platform for machine learning competitions. On a side of fun, I'm a casual
     <i>Kaggler</i> who is interested in playing with various kinds of data. Most
     of the competitions I attended were for image-related problems, others
     include numerical data such as insurance and sales prediction, and text data
     for NLP-related problems.
-
   </p>
 
   <div class="row">
@@ -167,37 +166,40 @@
   <h5 style="color:dimgray">
     <b>Generative Art</b>
   </h5>
-  <a href="https://en.wikipedia.org/wiki/Generative_art" target="_blank">Generative Art</a>
-  refers to the kind of art that in whole or in part has been created with the
-  use of an autonomous system. I'm particularly interested in creating artwork
-  using modern computational vision and deep learning methods, a.k.a.
-  <a href="https://en.wikipedia.org/wiki/Algorithmic_art" target="_blank">Algorithmic Art</a>.
-  <br><br>
-  One of the things I've been playing with is <a href="https://eplex.cs.ucf.edu/papers/stanley_gpem07.pdf"
-    target="_blank">Compositional
-    Pattern-Producing Networks (CPPN)</a>. The (interactive) canvas below shows
-  how such a deep neural network running in the browser is able to generate
-  exquisite patterns through randomized vector computations. This work is
-  inspired by <a href="http://blog.otoro.net/2016/03/25/generating-abstract-patterns-with-tensorflow/"
-    target="_blank">David Ha's blog post</a> and powered by <a href="https://js.tensorflow.org/"
-    target="_blank">TensorFlow.js</a>. The source code can be found <a href="js/cppn.js" target="_blank">here</a>.
+  <p>
+    <a href="https://en.wikipedia.org/wiki/Generative_art" target="_blank">Generative Art</a>
+    refers to the kind of art that in whole or in part has been created with the
+    use of an autonomous system. I'm particularly interested in creating artwork
+    using modern computational vision and deep learning methods, a.k.a.
+    <a href="https://en.wikipedia.org/wiki/Algorithmic_art" target="_blank">Algorithmic Art</a>.
+  </p>
+  <p>
+    One of the things I've been playing with is <a href="https://eplex.cs.ucf.edu/papers/stanley_gpem07.pdf"
+      target="_blank">Compositional
+      Pattern-Producing Networks (CPPN)</a>. The (interactive) canvas below shows
+    how such a deep neural network running in the browser is able to generate
+    exquisite patterns through randomized vector computations. This work is
+    inspired by <a href="http://blog.otoro.net/2016/03/25/generating-abstract-patterns-with-tensorflow/"
+      target="_blank">David Ha's blog post</a> and powered by <a href="https://js.tensorflow.org/"
+      target="_blank">TensorFlow.js</a>. The source code can be found <a href="js/cppn.js" target="_blank">here</a>.
+  </p>
 
-  <br>
-
-  <br>
   <div style="overflow: hidden; position: relative;">
-    <input type="button" style="position: absolute; left:1em; top: 3em; opacity:0.8;
+    <!--
+      <input type="button" style="position: absolute; left:1em; top: 1em; opacity:0.8;
   background:transparent;font-size: .7em; padding: 0em 1.6em;" value="repaint" onclick="draw()">
     <p style="position: absolute; left:1em; top: .4em; color:dimgray;
     font-size: .9em;">Compositional Pattern-Producing Networks
     </p>
+    -->
     <canvas id="inference" width="100" height="100"></canvas>
+    <p style="color:dimgray; font-size: .9em;" align="center">
+      Compositional Pattern-Producing Networks<br>
+      <input type="button"
+        style="opacity:0.8; background:transparent; font-size: .9em; padding: 0em 1.6em; margin-top: .6em;"
+        value="repaint" onclick="draw()">
+    </p>
   </div>
-  <br>
-
-
-
-
 
 
 
