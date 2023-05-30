@@ -34,12 +34,12 @@ function build(h, w) {
     useBias: false
   }).apply(model_input);
   const conv2 = tf.layers.conv2d({
-    kernelSize: 1,
+    kernelSize: 3,
     filters: 32,
     strides: 1,
     activation: 'tanh',
-    padding: 'same',
-    kernelInitializer: tf.initializers.randomNormal({ mean: 0, stddev: 1.6 }),
+    padding: 'valid',
+    kernelInitializer: tf.initializers.randomNormal({ mean: 0, stddev: 1.2 }),
     useBias: false
   }).apply(conv1);
   const conv3 = tf.layers.conv2d({
@@ -57,7 +57,7 @@ function build(h, w) {
     strides: 1,
     activation: 'tanh',
     padding: 'same',
-    kernelInitializer: tf.initializers.randomNormal({ mean: 0, stddev: 1.6 }),
+    kernelInitializer: tf.initializers.randomNormal({ mean: 0, stddev: 1.2 }),
     useBias: false
   }).apply(conv3);
   const conv5 = tf.layers.conv2d({
