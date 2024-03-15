@@ -325,25 +325,26 @@
 
 
   <script>
-      nction moveSlide(n, sliderId) {
-        r slider = document.getElementById(sliderId);
-        r slides = slider.getElementsByClassName("slide");
-        r captions = slider.getElementsByClassName("caption");
-        r slideIndex = parseInt(slider.getAttribute("data-slide-index")) || 0;
+    function moveSlide(n, sliderId) {
+      var slider = document.getElementById(sliderId);
+      var slides = slider.getElementsByClassName("slide");
+      var captions = slider.getElementsByClassName("caption");
+      var slideIndex = parseInt(slider.getAttribute("data-slide-index")) || 0;
 
-      ideIndex += n;
+      slideIndex += n;
 
-      (slideIndex >= slides.length) { slideIndex = slides.length - 1; }
-      (slideIndex < 0) { slideIndex = 0; }
+      if (slideIndex >= slides.length) { slideIndex = slides.length - 1; }
+      if (slideIndex < 0) { slideIndex = 0; }
 
-      r(var i = 0; i < slides.length; i++) {
-        ides[i].style.display = "none";
-        ptions[i].style.display = "none";
-
-        ides[slideIndex].style.display = "block";
-        ptions[slideIndex].style.display = "block";
-        ider.setAttribute("data-slide-index", slideIndex);
+      for (var i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+        captions[i].style.display = "none";
       }
+
+      slides[slideIndex].style.display = "block";
+      captions[slideIndex].style.display = "block";
+      slider.setAttribute("data-slide-index", slideIndex);
+    }
   </script>
 
 </body>
