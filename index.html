@@ -1,7 +1,6 @@
 <!-- 
   Author: Li Ding
 -->
-
 <!DOCTYPE html>
 <html style="height: 100%;">
 
@@ -12,34 +11,28 @@
   <title>Li Ding | 丁立</title>
   <meta name="description" content="Li Ding's personal website.">
   <meta name="author" content="Li Ding">
-
   <!-- Mobile Specific Metas
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <!-- FONT
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Raleway:400,300,600">
-  <link rel="stylesheet" href="//use.fontawesome.com/releases/v6.0.0/css/all.css">
-  <link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
-
   <!-- CSS
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/skeleton.css">
   <link rel="stylesheet" href="css/custom.css">
-
   <!-- NN-Art
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.2"> </script>
-  <script src="js/cppn.js"> </script>
-
+  <!-- <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.2"> </script> -->
+  <!-- <script src="js/cppn.js"> </script> -->
+  <!-- Font Awesome  
+   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
   <!-- Favicon
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link rel="icon" type="image/png" href="images/logos/favicon.png">
 </head>
+<!-- <body onload="init()" onresize="init()"> -->
 
-<body onload="init()" onresize="init()">
+<body>
   <!-- Primary Page Layout
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <!-- <header class="container">
@@ -58,118 +51,77 @@
       </ul>
     </nav>
   </header> -->
-
   <div class="container">
     <!-- Profile  
     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-
     <br>
-
     <div class="row" style="display: flex; flex-wrap: wrap; align-items: center">
-      <div class="four columns">
+      <div class="five columns">
         <img src="images/profile.jpg"
-          style="width:75%; display:block; margin: auto; object-fit: cover; border-radius: 50%;">
+          style="width:60%; display:block; margin: auto; object-fit: cover; border-radius: 50%;">
       </div>
       <div class="seven columns">
         <br>
-        <p style="font-size:1.6em;" align="left">
-          Li Ding | 丁立
+        <p style="font-size:2em;" align="left"> Li Ding | 丁立 </p>
+        <p style="margin-bottom: .5rem;">
+          <a href="https://scholar.google.com/citations?user=l7vkyR8AAAAJ&hl=en&oi=ao" target="_blank"><i
+              class="fa-brands fa-google-scholar"></i> Scholar</a> / <a href="https://github.com/ld-ing"
+            target="_blank"><i class="fa-brands fa-github"></i> Github</a> / <a href="https://twitter.com/li_ding_"
+            target="_blank"><i class="fa-brands fa-x-twitter"></i> Twitter</a> / <a
+            href="https://www.linkedin.com/in/lding94/" target="_blank"><i class="fa-brands fa-linkedin"></i>
+            LinkedIn</a> / <a href="li_ding_cv.pdf" target="_blank"><i class="fa-regular fa-file-lines"></i> CV</a>
         </p>
-
         <p>
-          I'm a final-year PhD candidate at <a href="https://www.cics.umass.edu/" target="_blank">UMass Amherst
-            CICS</a>,
-          advised by <a href="https://www.amherst.edu/people/facstaff/lspector" target="_blank">Lee
-            Spector</a>.
-          I work closely with <a href="https://people.cs.umass.edu/~sniekum/" target="_blank">Scott
-            Niekum</a> (UMass), <a href="http://joellehman.com/" target="_blank">Joel Lehman</a> (Stability AI), <a
+          <i class="far fa-envelope"></i> liding256@gmail.com <s>liding@{umass.edu, mit.edu}</s>
+        </p>
+        <p> I'm currently at <a href="https://ai.google/" target="_blank">Google</a> (Mountain View), working on
+          multimodal LLMs and on-device generative AI. </p>
+        <p>I received my Ph.D. from <a href="https://www.cics.umass.edu/" target="_blank">UMass Amherst CICS</a> in
+          2024, advised by <a href="https://www.amherst.edu/people/facstaff/lspector" target="_blank">Lee Spector</a>. I
+          worked closely with <a href="https://people.cs.umass.edu/~sniekum/" target="_blank">Scott Niekum</a>, <a
+            href="http://joellehman.com/" target="_blank">Joel Lehman</a> (Stability AI), <a
             href="http://jeffclune.com/" target="_blank">Jeff Clune</a> (UBC, DeepMind), and <a
-            href="http://joellehman.com/" target="_blank">Masrour Zoghi</a> (Google Research). I also spent time
-          at <a href="https://research.google/" target="_blank">Google Research</a> and <a
-            href="https://tech.fb.com/ar-vr/" target="_blank">Meta</a>.
-        </p>
-
-        <p>
-          Before PhD, I was a full-time research engineer at <a href="https://www.mit.edu" target="_blank">MIT</a>
-          with
-          <a href="https://lexfridman.com/" target="_blank">Lex Fridman</a> and
-          <a href="https://www.mit.edu/~reimer/" target="_blank">Bryan
-            Reimer</a>, and concurrently a graduate
-          student at
-          <a href="https://www.csail.mit.edu/" target="_blank">MIT CSAIL</a>.
-          I did my master's at
-          <a href="https://www.sas.rochester.edu/dsc/" target="_blank">Univ. of
-            Rochester</a> with
-          <a href="https://www.cs.rochester.edu/~cxu22/" target="_blank">Chenliang Xu</a>.
-        </p>
-
-        <p style="margin-bottom: .6rem;">
-          <i class="far fa-envelope"></i> liding@{umass.edu, mit.edu}
-        </p>
-
-        <p>
-          <a href="https://scholar.google.com/citations?user=l7vkyR8AAAAJ&hl=en&oi=ao" target="_blank">Google
-            Scholar</a>
-          /
-          <a href="https://github.com/ld-ing" target="_blank">Github</a>
-          /
-          <a href="https://twitter.com/li_ding_" target="_blank">Twitter</a>
-          /
-          <a href="https://www.linkedin.com/in/lding94/" target="_blank">LinkedIn</a>
-          /
-          <a href="li_ding_cv.pdf" target="_blank">CV</a>
-        </p>
+            href="http://joellehman.com/" target="_blank">Masrour Zoghi</a> (Google). I also interned at <a
+            href="https://research.google/" target="_blank">Google</a> and <a href="https://tech.fb.com/ar-vr/"
+            target="_blank">Meta</a>. </p>
+        <p> Before Ph.D., I was a full-time research engineer at <a href="https://www.mit.edu" target="_blank">MIT</a>
+          with <a href="https://lexfridman.com/" target="_blank">Lex Fridman</a> and <a
+            href="https://www.mit.edu/~reimer/" target="_blank">Bryan Reimer</a>, and concurrently a graduate student at
+          <a href="https://www.csail.mit.edu/" target="_blank">MIT CSAIL</a>. I did my master's at <a
+            href="https://www.sas.rochester.edu/dsc/" target="_blank">Univ. of Rochester</a> with <a
+            href="https://www.cs.rochester.edu/~cxu22/" target="_blank">Chenliang Xu</a>. </p>
       </div>
     </div>
-
     <div class="row" style="display: flex; flex-wrap: wrap; align-items: center">
       <div class="twelve columns">
         <!-- <p>
           11/2023 - I'm on the lookout for <b>job opportunities</b> in both the industry and academia, starting
           <b>09/2024</b>. If you feel that my background is a good fit for your organization, let's chat!
         </p> -->
-
         <hr>
-
-        <p style="color:dimgray;font-size:1.3em">
-          Research
-        </p>
-        <p>
-          My research focus is optimization algorithms for large models and AI agents, focusing on:
+        <p style="color:dimgray;font-size:1.3em"> Research </p>
+        <p> My research insterests are in optimization for large models and generative AI agents, focusing on:
         <ul>
-          <li><b>Open-Endedness</b>: generative models and AI agents for
-            open-ended tasks and environments.</li>
-          <li><b>Human-AI Alignment</b>: preference learning, reinforcement learning from human feedback (RLHF),
-            and safe RL.</li>
+          <li><b>Open-Endedness</b>: generative models and agents for open-ended learning.</li>
+          <li><b>Human-AI Alignment</b>: safety and fairness in preference learning and RLHF.</li>
         </ul>
         </p>
-        <p>
-          I'm also interested and have published in disciplines including quantum ML and human-computer interaction.
-          Before PhD, I worked on deep learning for autonomous driving, cognitive modeling, and action
-          recognition.
-        </p>
+        <p> I'm also interested in (and have published in) disciplines such as quantum ML and human-computer
+          interaction. Before Ph.D., I worked on deep learning for autonomous driving, cognitive modeling, and action
+          recognition. </p>
       </div>
     </div>
-
     <div class="row" style="display: flex; flex-wrap: wrap; align-items: center">
       <div class="twelve columns">
-
         <!-- Publications
 –––––––––––––––––––––––––––––––––––––––––––––––––– -->
         <hr>
-
-        <p style="color:dimgray;font-size:1.3em">
-          Selected Publications
-        </p>
-
-        <p>
-          For a complete and up-to-date list of publications, please see <a
+        <p style="color:dimgray;font-size:1.3em"> Selected Publications </p>
+        <p> For a complete and up-to-date list of publications, please see <a
             href="https://scholar.google.com/citations?user=l7vkyR8AAAAJ&hl=en&oi=ao" target="_blank">Google
-            Scholar</a>.
-        </p>
+            Scholar</a>. </p>
       </div>
     </div>
-
     <div class="row" style="display: flex; flex-wrap: wrap; align-items: center;">
       <div class="three columns">
         <img src="images/pub_24_popl.png" style="width:90%">
@@ -178,54 +130,41 @@
         <p>
           <b>Pareto-Optimal Learning from Preferences with Hidden Context</b>
           <br>
-          <a href="https://ryanboldi.github.io/">
-            Ryan Boldi</a>, <b>Li Ding</b>, <a href="https://lspector.github.io/">Lee Spector</a>, <a
-            href="https://people.cs.umass.edu/~sniekum/">
-            Scott Niekum
-          </a>
+          <a href="https://ryanboldi.github.io/"> Ryan Boldi</a>, <b>Li Ding</b>, <a
+            href="https://lspector.github.io/">Lee Spector</a>, <a href="https://people.cs.umass.edu/~sniekum/"> Scott
+            Niekum </a>
           <br>
-          <em>Preprint</em>
-          <br>
-          [<a href="https://arxiv.org/abs/2406.15599" target="_blank">arXiv</a>]
+          <em>RLC 2024: RL Safety Workshop</em>
+          <br> [<a href="https://arxiv.org/abs/2406.15599" target="_blank">arXiv</a>]
         </p>
       </div>
     </div>
     <br>
-
     <div class="row" style="display: flex; flex-wrap: wrap; align-items: center;">
       <div class="three columns">
         <img src="images/pub_23_qdhf.jpg" style="width:90%">
       </div>
       <div class="eight columns">
         <p>
-          <b>Quality Diversity through Human Feedback: Towards Open-Ended Diversity-Driven Optimization
-          </b>
+          <b>Quality Diversity through Human Feedback: Towards Open-Ended Diversity-Driven Optimization </b>
           <br>
-          <b>Li Ding</b>, <a href="https://www.jennyzhangzt.com/">
-            Jenny Zhang
-          </a>, <a href="http://jeffclune.com/">
-            Jeff Clune
-          </a>, <a href="https://lspector.github.io/">
-            Lee Spector
-          </a>, <a href="http://joellehman.com/">
-            Joel Lehman
-          </a>
+          <b>Li Ding</b>, <a href="https://www.jennyzhangzt.com/"> Jenny Zhang </a>, <a href="http://jeffclune.com/">
+            Jeff Clune </a>, <a href="https://lspector.github.io/"> Lee Spector </a>, <a href="http://joellehman.com/">
+            Joel Lehman </a>
           <br>
           <em>ICML 2024</em>
           <br>
           <em>NeurIPS 2023: ALOE Workshop <b style="color:deepskyblue">(Spotlight)</b></em>
-          <br>
-          [<a href="qdhf/" target="_blank">project page</a>]
-          [<a href="https://arxiv.org/abs/2310.12103" target="_blank">arXiv</a>]
-          [<a href="https://huggingface.co/spaces/jennyzzt/quality-diversity-through-human-feedback">demo</a>]
-          [<a href="https://neurips.cc/virtual/2023/83789">talk</a>]
-          [<a href="https://github.com/ld-ing/qdhf" target="_blank">code</a>]
-          [<a href="https://docs.pyribs.org/en/stable/tutorials/qdhf.html" target="_blank">tutorial</a>]
+          <br> [<a href="qdhf/" target="_blank">project page</a>] [<a href="https://arxiv.org/abs/2310.12103"
+            target="_blank">arXiv</a>] [<a
+            href="https://huggingface.co/spaces/jennyzzt/quality-diversity-through-human-feedback">demo</a>] [<a
+            href="https://neurips.cc/virtual/2023/83789">talk</a>] [<a href="https://github.com/ld-ing/qdhf"
+            target="_blank">code</a>] [<a href="https://docs.pyribs.org/en/stable/tutorials/qdhf.html"
+            target="_blank">tutorial</a>]
         </p>
       </div>
     </div>
     <br>
-
     <div class="row" style="display: flex; flex-wrap: wrap; align-items: center">
       <div class="three columns">
         <img src="images/pub_23_ev3.png" style="width:90%">
@@ -235,18 +174,14 @@
           <b>Ever Evolving Evaluator (EV3): Towards Flexible and Reliable Meta-Optimization for Knowledge
             Distillation</b>
           <br>
-          <b>Li Ding</b>, Masrour Zoghi, Guy Tennenholtz, Maryam Karimzadehgan
-          <br>
+          <b>Li Ding</b>, Masrour Zoghi, Guy Tennenholtz, Maryam Karimzadehgan <br>
           <em>NeurIPS 2023: RealML Workshop</em>
-          <br>
-          [<a href="https://arxiv.org/abs/2310.18893" target="_blank">arXiv</a>]
-          [<a href="https://github.com/google-research/google-research/tree/master/ev3" target="_blank">code</a>]
+          <br> [<a href="https://arxiv.org/abs/2310.18893" target="_blank">arXiv</a>] [<a
+            href="https://github.com/google-research/google-research/tree/master/ev3" target="_blank">code</a>]
         </p>
       </div>
     </div>
     <br>
-
-
     <div class="row" style="display: flex; flex-wrap: wrap; align-items: center">
       <div class="three columns">
         <img src="images/pub_23_plexi.png" style="width:90%">
@@ -255,19 +190,15 @@
         <p>
           <b>Probabilistic Lexicase Selection</b>
           <br>
-          <b>Li Ding</b>, Edward Pantridge, Lee Spector
-          <br>
+          <b>Li Ding</b>, Edward Pantridge, Lee Spector <br>
           <em>GECCO 2023</em>
-          <br>
-          [<a href="https://dl.acm.org/doi/abs/10.1145/3583131.3590375" target="_blank">paper</a>] [<a
+          <br> [<a href="https://dl.acm.org/doi/abs/10.1145/3583131.3590375" target="_blank">paper</a>] [<a
             href="https://arxiv.org/abs/2305.11681" target="_blank">arXiv</a>] [<a
             href="https://github.com/ld-ing/plexicase" target="_blank">code</a>]
         </p>
       </div>
     </div>
     <br>
-
-
     <div class="row" style="display: flex; flex-wrap: wrap; align-items: center">
       <div class="three columns">
         <img src="images/pub_pupil.jpg" style="width:90%">
@@ -276,18 +207,14 @@
         <p>
           <b>CLERA: A Unified Model for Joint Cognitive Load and Eye Region Analysis in the Wild</b>
           <br>
-          <b>Li Ding</b>, Jack Terwilliger, Aishni Parab, Meng Wang, Lex Fridman, Bruce Mehler, Bryan Reimer
-          <br>
+          <b>Li Ding</b>, Jack Terwilliger, Aishni Parab, Meng Wang, Lex Fridman, Bruce Mehler, Bryan Reimer <br>
           <em>ACM Transactions on Computer-Human Interaction, 2023</em>
-          <br>
-          [<a href="https://dl.acm.org/doi/abs/10.1145/3603622" target="_blank">paper</a>] [<a
+          <br> [<a href="https://dl.acm.org/doi/abs/10.1145/3603622" target="_blank">paper</a>] [<a
             href="https://arxiv.org/abs/2306.15073" target="_blank">arXiv</a>]
         </p>
       </div>
     </div>
     <br>
-
-
     <div class="row" style="display: flex; flex-wrap: wrap; align-items: center; ">
       <div class="three columns">
         <img src="images/pub_22_iclr.png" style="width:90%">
@@ -296,20 +223,16 @@
         <p>
           <b>Optimizing Neural Networks with Gradient Lexicase Selection</b>
           <br>
-          <b>Li Ding</b>, Lee Spector
-          <br>
+          <b>Li Ding</b>, Lee Spector <br>
           <em>ICLR 2022</em>
-          <br>
-          [<a href="https://openreview.net/forum?id=J_2xNmVcY4" target="_blank">paper</a>]
-          [<a href="https://iclr.cc/virtual/2022/poster/5996" target="_blank">video</a>]
-          [<a href="materials/ding2022optimizing_poster.pdf" target="_blank">poster</a>]
-          [<a href="https://github.com/ld-ing/gradient-lexicase" target="_blank" ]>code</a>]
+          <br> [<a href="https://openreview.net/forum?id=J_2xNmVcY4" target="_blank">paper</a>] [<a
+            href="https://iclr.cc/virtual/2022/poster/5996" target="_blank">video</a>] [<a
+            href="materials/ding2022optimizing_poster.pdf" target="_blank">poster</a>] [<a
+            href="https://github.com/ld-ing/gradient-lexicase" target="_blank" ]>code</a>]
         </p>
       </div>
     </div>
     <br>
-
-
     <div class="row" style="display: flex; flex-wrap: wrap; align-items: center; ">
       <div class="three columns">
         <img src="images/pub_value.jpg" style="width:90%">
@@ -318,56 +241,42 @@
         <p>
           <b>Value of Temporal Dynamics Information in Driving Scene Segmentation</b>
           <br>
-          <b>Li Ding</b>, Jack Terwilliger, Rini Sherony, Bryan Reimer, Lex Fridman
-          <br>
+          <b>Li Ding</b>, Jack Terwilliger, Rini Sherony, Bryan Reimer, Lex Fridman <br>
           <em>IEEE Transactions on Intelligent Vehicles, 2021</em>
-          <br>
-          [<a href="https://ieeexplore.ieee.org/abstract/document/9478305" target="_blank">paper</a>]
-          [<a href="https://arxiv.org/abs/1904.00758" target="_blank">arXiv</a>]
-          [<a href="https://ieee-dataport.org/open-access/mit-driveseg-manual-dataset" target="_blank">MIT DriveSeg
-            Dataset</a>]
-          <br>
-          Press coverage:
-          [<a
+          <br> [<a href="https://ieeexplore.ieee.org/abstract/document/9478305" target="_blank">paper</a>] [<a
+            href="https://arxiv.org/abs/1904.00758" target="_blank">arXiv</a>] [<a
+            href="https://ieee-dataport.org/open-access/mit-driveseg-manual-dataset" target="_blank">MIT DriveSeg
+            Dataset</a>] <br> Press coverage: [<a
             href="https://news.mit.edu/2020/mit-toyota-release-visual-open-data-accelerate-autonomous-driving-research-0618"
-            target="_blank">MIT News</a>]
-          [<a
+            target="_blank">MIT News</a>] [<a
             href="https://www.forbes.com/sites/rahulrazdan/2020/06/24/mit-and-toyota-announce-an-important-dataset-for-improving-perception-research/?sh=1b2223ee72e0"
-            target="_blank">Forbes</a>]
-          [<a href="https://www.infoq.com/news/2020/06/mit-toyota-autonomous-driving/" target="_blank">InfoQ</a>]
-          [<a
+            target="_blank">Forbes</a>] [<a href="https://www.infoq.com/news/2020/06/mit-toyota-autonomous-driving/"
+            target="_blank">InfoQ</a>] [<a
             href="https://techcrunch.com/2020/06/21/the-station-doordash-snags-400m-bolt-mobility-deploys-self-cleaning-tech-and-disappearing-jump-bikes/"
             target="_blank">TechCrunch</a>]
         </p>
       </div>
     </div>
     <br>
-
-
     <div class="row" style="display: flex; flex-wrap: wrap; align-items: center">
       <div class="three columns">
         <img src="images/pub_avt.jpg" style="width:90%">
       </div>
       <div class="nine columns">
         <p>
-          <b>MIT Advanced Vehicle Technology Study:
-            Large-Scale Naturalistic Driving Study of
-            Driver Behavior and Interaction with Automation</b>
-          <br>
-          Lex Fridman, Daniel E. Brown, Michael Glazer, William Angell, Spencer Dodd, Benedikt Jenik, Jack
+          <b>MIT Advanced Vehicle Technology Study: Large-Scale Naturalistic Driving Study of Driver Behavior and
+            Interaction with Automation</b>
+          <br> Lex Fridman, Daniel E. Brown, Michael Glazer, William Angell, Spencer Dodd, Benedikt Jenik, Jack
           Terwilliger, Julia Kindelsberger, <b>Li Ding</b>, Sean Seaman, Alea Mehler, Andrew Sipperley, Anthony
-          Pettinato, Bobbie Seppelt, Linda Angell, Bruce Mehler, Bryan Reimer
-          <br>
+          Pettinato, Bobbie Seppelt, Linda Angell, Bruce Mehler, Bryan Reimer <br>
           <em>IEEE Access, 2019</em>
-          <br>
-          [<a href="https://ieeexplore.ieee.org/abstract/document/8751968" target="_blank">paper</a>]
-          [<a href="https://arxiv.org/abs/1711.06976" target="_blank">arXiv</a>]
-          [<a href="https://youtu.be/bzn7YEvoUaU?list=PLrAXtmErZgOfvrgXrKgzAFbqAW-lCG0Fv" target="_blank">video</a>]
+          <br> [<a href="https://ieeexplore.ieee.org/abstract/document/8751968" target="_blank">paper</a>] [<a
+            href="https://arxiv.org/abs/1711.06976" target="_blank">arXiv</a>] [<a
+            href="https://youtu.be/bzn7YEvoUaU?list=PLrAXtmErZgOfvrgXrKgzAFbqAW-lCG0Fv" target="_blank">video</a>]
         </p>
       </div>
     </div>
     <br>
-
     <!-- <div class="row" style="display: flex; flex-wrap: wrap; align-items: center">
       <div class="three columns">
         <img src="images/pub_object.jpg" style="width:90%">
@@ -385,8 +294,6 @@
       </div>
     </div>
     <br> -->
-
-
     <div class="row" style="display: flex; flex-wrap: wrap; align-items: center;">
       <div class="three columns">
         <img src="images/proj_act.jpg" style="width:90%">
@@ -397,18 +304,14 @@
           <br>
           <b>Li Ding</b>, Chenliang Xu<br>
           <em>CVPR 2018</em>
-          <br>
-          [<a
+          <br> [<a
             href="https://openaccess.thecvf.com/content_cvpr_2018/html/Ding_Weakly-Supervised_Action_Segmentation_CVPR_2018_paper.html"
-            target="_blank">paper</a>]
-          [<a href="https://arxiv.org/abs/1803.10699" target="_blank">arXiv</a>]
-          [<a href="materials/ding2018weakly_poster.pdf" target="_blank">poster</a>]
-          [<a href="https://github.com/Zephyr-D/TCFPN-ISBA" target="_blank">code</a>]
+            target="_blank">paper</a>] [<a href="https://arxiv.org/abs/1803.10699" target="_blank">arXiv</a>] [<a
+            href="materials/ding2018weakly_poster.pdf" target="_blank">poster</a>] [<a
+            href="https://github.com/Zephyr-D/TCFPN-ISBA" target="_blank">code</a>]
         </p>
       </div>
     </div>
-
-
     <!-- <div class="row" style="display: flex; flex-wrap: wrap; align-items: center">
       <div class="three columns">
         <img src="images/pub_vr.jpg" style="width:90%">
@@ -425,7 +328,6 @@
       </div>
     </div>
     <br> -->
-
     <!-- 
 
     <div class="row" style="display: flex; flex-wrap: wrap; align-items: center">
@@ -444,35 +346,23 @@
         </p>
       </div>
     </div> -->
-
-
     <div class="row" style="display: flex; flex-wrap: wrap; align-items: center">
       <div class="twelve columns">
         <hr>
-
-        <p style="color:dimgray;font-size:1.3em">
-          Misc.
-        </p>
-
+        <p style="color:dimgray;font-size:1.3em"> Misc. </p>
         <p>
           <b>Teaching: </b><br>
-          TA for <a href="https://sites.google.com/view/230-summer-2021/home" target="_blank">UMass COMPSCI 230:
-            Computer
-            Systems Principles</a> (Summer 2021).<br>
-          TA for <a href="https://deeplearning.mit.edu" target="_blank">MIT 6.S094: Deep Learning for Self-Driving
-            Cars</a>
-          (Winter 2018-19).<br>
-          TA for <a href="https://deeplearning.mit.edu" target="_blank">MIT 6.S099:
-            Artificial General Intelligence</a> (Winter 2019).<br>
+          <!-- TA for <a href="https://sites.google.com/view/230-summer-2021/home"
+            target="_blank">UMass COMPSCI 230: Computer Systems Principles</a> (Summer 2021).<br>  --> TA for <a
+            href="https://deeplearning.mit.edu" target="_blank">MIT 6.S094: Deep Learning for Self-Driving Cars</a>
+          (Winter 2018-19).<br> TA for <a href="https://deeplearning.mit.edu" target="_blank">MIT 6.S099: Artificial
+            General Intelligence</a> (Winter 2019).<br>
           <!-- (The contributed tutorials got 9k stars on <a href="https://github.com/lexfridman/mit-deep-learning"
             target="_blank">Github</a>.) -->
         </p>
-
         <p>
-          <b>Reviewer:</b><br>
-          ICLR 2024, ECCV 2024, NeurIPS 2023, ICCV 2023, CVPR 2023, etc.
+          <b>Reviewer:</b><br> ICLR, NeurIPS, ICCV, CVPR, JMLR, etc.
         </p>
-
         <p>
           <b>Open source projects:</b><br>
           <a href="https://github.com/google-research/google-research/tree/master/ev3"
@@ -484,72 +374,56 @@
           <a href="https://github.com/lexfridman/mit-deep-learning" target="_blank">mit-deep-learning</a>: Tutorials and
           coding assignments for MIT Deep Learning courses (9k+ stars).<br>
         </p>
-
         <b>Side projects:</b>
-
       </div>
     </div>
-
     <div class="row" style="display: flex; flex-wrap: wrap; align-items: center">
       <div class="three columns">
         <img src="images/misc_podcast.jpg" style="width:90%">
       </div>
       <div class="nine columns">
         <p>
-          <b><a href="https://lexfridman.com/ai/" target="_blank">MIT AI
-              Podcast</a></b><br>
-          Helped prepare interview questions, search for guest speakers, etc. for a
-          podcast hosted by <a href="https://lexfridman.com/">Lex Fridman</a> about technology, science, and the
-          human
-          condition.<br>
-          (Ranked #1 on <a href="https://podcasts.apple.com/us/podcast/lex-fridman-podcast/id1434243584"
-            target="_blank">Apple Podcasts</a> in the technology category, 1M views
-          on <a href="https://www.youtube.com/playlist?list=PLrAXtmErZgOdP_8GztsuKi9nrraNbKKp4"
-            target="_blank">YouTube</a>.)<br>
-          (My personal favorite episode is Tomaso Poggio, highly
-          recommended!)
+          <b><a href="https://lexfridman.com/ai/" target="_blank">MIT AI Podcast</a></b><br> Helped prepare interview
+          questions, search for guest speakers, etc. for a podcast hosted by <a href="https://lexfridman.com/">Lex
+            Fridman</a> about technology, science, and the human condition.<br> (Ranked #1 on <a
+            href="https://podcasts.apple.com/us/podcast/lex-fridman-podcast/id1434243584" target="_blank">Apple
+            Podcasts</a> in the technology category, 1M views on <a
+            href="https://www.youtube.com/playlist?list=PLrAXtmErZgOdP_8GztsuKi9nrraNbKKp4"
+            target="_blank">YouTube</a>.)<br> (My personal favorite episode is Tomaso Poggio, highly recommended!)
         </p>
       </div>
     </div>
-
     <div class="row" style="display: flex; flex-wrap: wrap; align-items: center">
       <div class="three columns">
         <img src="images/misc_robocar.jpg" style="width:90%">
       </div>
       <div class="nine columns">
         <p>
-          <b>MIT Robocar Workshop</b><br>
-          Instructor for a summer/winter workshop at MIT with <a href="http://tomsb.net/">Tom Bertalan</a> to
-          college and high school
-          students on building and programming autonomous robocars.
+          <b>MIT Robocar Workshop</b><br> Instructor for a summer/winter workshop at MIT with <a
+            href="http://tomsb.net/">Tom Bertalan</a> to college and high school students on building and programming
+          autonomous robocars.
         </p>
       </div>
     </div>
-
     <div class="row" style="display: flex; flex-wrap: wrap; align-items: center">
       <div class="twelve columns">
-        <hr>
-        <img src="images/logos/google.png" style="width:21%; margin-right:2%; display:block" align="left">
+        <!-- <img src="images/logos/google.png" style="width:21%; margin-right:2%; display:block" align="left">
         <img src="images/logos/meta.png" style="width:13%; margin-right:2%; display:block" align="left">
         <img src="images/logos/umass.png" style="width:8%; margin-right:2%; display:block" align="left">
         <img src="images/logos/mit.png" style="width:7%; margin-right:2%; display:block" align="left">
-        <img src="images/logos/uofr.png" style="width:16%; margin-right:2%; display:block" align="left">
-
-        <p style="font-size:0.8em; color:dimgray; width: 100%;" align="right">
-          Last updated: 06/2024<br>
-          Powered by <a href="http://getskeleton.com/" target="_blank">Skeleton</a><br>
-          Design inspired by <a href="https://jonbarron.info" target="_blank">Jon Barron</a>
+        <img src="images/logos/uofr.png" style="width:16%; margin-right:2%; display:block" align="left"> -->
+        <hr>
+        <p style="font-size:0.8em; color:dimgray; width: 100%;" align="right"> Last updated: 08/2024<br> Powered by <a
+            href="http://getskeleton.com/" target="_blank">Skeleton</a><br> Design inspired by <a
+            href="https://jonbarron.info" target="_blank">Jon Barron</a>
         </p>
       </div>
     </div>
-
     <div style="display: none;">
       <script type='text/javascript' id='clustrmaps'
         src='//cdn.clustrmaps.com/map_v2.js?cl=ffffff&w=320&t=tt&d=gCQRdA5C7TG7XJG9P_tMaYunDm-5RUkgWx0XhdLbtmU&co=3d6dff&cmo=00ffbc&cmn=ffef00&ct=ffffff'>
         </script>
     </div>
-
-
     <!-- Footer  
 –––––––––––––––––––––––––––––––––––––––––––––––––– -->
     <footer>
@@ -559,7 +433,6 @@
       </p>
     </footer>
   </div>
-
   <!-- End Document
 –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 </body>

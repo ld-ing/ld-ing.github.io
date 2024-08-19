@@ -215,7 +215,7 @@ html {
 }
 
 body {
-  font-size: 14px;
+  font-size: 13px;
   /* currently ems cause chrome bug misinterpreting rems on body element */
   line-height: 1.5;
   font-weight: 400;
@@ -308,7 +308,7 @@ p {
 /* Links
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 a {
-  color: mediumblue;
+  color: royalblue;
   text-decoration: none;
 }
 
@@ -327,7 +327,7 @@ input[type="button"] {
   display: inline-block;
   height: 38px;
   padding: 0 30px;
-  color: mediumblue;
+  color: royalblue;
   text-align: center;
   font-size: 11px;
   font-weight: 600;
