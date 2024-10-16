@@ -215,7 +215,7 @@ html {
 }
 
 body {
-  font-size: 13px;
+  font-size: 14px;
   /* currently ems cause chrome bug misinterpreting rems on body element */
   line-height: 1.5;
   font-weight: 400;
