@@ -215,12 +215,12 @@ html {
 }
 
 body {
-  font-size: 13px;
+  font-size: 16px;
   /* currently ems cause chrome bug misinterpreting rems on body element */
   line-height: 1.5;
   font-weight: 400;
-  font-family: 'Lato', Verdana, sans-serif;
-  color: #222;
+  font-family: "Google Sans", sans-serif;
+  color: #45474d;
 }
 
 
@@ -308,12 +308,12 @@ p {
 /* Links
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 a {
-  color: royalblue;
+  color: #0053D6;
   text-decoration: none;
 }
 
 a:hover {
-  color: deepskyblue;
+  color: #3278fa;
 }
 
 
@@ -327,7 +327,7 @@ input[type="button"] {
   display: inline-block;
   height: 38px;
   padding: 0 30px;
-  color: royalblue;
+  color: #0053D6;
   text-align: center;
   font-size: 11px;
   font-weight: 600;
