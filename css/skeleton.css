@@ -219,7 +219,7 @@ body {
   /* currently ems cause chrome bug misinterpreting rems on body element */
   line-height: 1.5;
   font-weight: 400;
-  font-family: "Google Sans", sans-serif;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   color: #45474d;
 }
 
@@ -310,10 +310,11 @@ p {
 a {
   color: #0053D6;
   text-decoration: none;
+  transition: color 0.15s ease;
 }
 
 a:hover {
-  color: #3278fa;
+  color: #5a9aff;
 }
 
 
@@ -588,7 +589,7 @@ hr {
   margin-top: 3rem;
   margin-bottom: 3.5rem;
   border-width: 0;
-  border-top: 1px solid #E1E1E1;
+  border-top: 1px solid #e8e8e8;
 }
 
 

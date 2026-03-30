@@ -269,6 +269,13 @@
 /* Layout */
 html {
     height: 100%;
+    scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
 }
 
 .flex-row {
@@ -284,6 +291,12 @@ html {
     margin: auto;
     object-fit: cover;
     border-radius: 50%;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+.profile-img:hover {
+    box-shadow: 0 6px 28px rgba(0, 0, 0, 0.15);
 }
 
 .name {
@@ -295,10 +308,31 @@ html {
     margin-bottom: .5rem;
 }
 
+.social-links a {
+    display: inline-block;
+    padding: 3px 10px;
+    margin: 2px 3px 2px 0;
+    border-radius: 4px;
+    background-color: #f0f4f8;
+    color: #0053D6;
+    font-size: 0.88em;
+    font-weight: 500;
+    transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.social-links a:hover {
+    background-color: #5a9aff;
+    color: #fff;
+}
+
 /* Sections */
 .section-title {
     color: black;
     font-size: 1.3em;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    padding-left: 12px;
+    border-left: 3px solid #0053D6;
 }
 
 .pub-img {
@@ -311,6 +345,43 @@ html {
 
 .spotlight {
     color: #0053D6;
+}
+
+/* Publication link badges */
+.pub-links {
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-top: 2px;
+}
+
+.pub-links a {
+    display: inline-block;
+    padding: 1px 8px;
+    border-radius: 3px;
+    background-color: #f0f4f8;
+    color: #0053D6;
+    font-size: 0.85em;
+    font-weight: 500;
+    transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.pub-links a:hover {
+    background-color: #5a9aff;
+    color: #fff;
+}
+
+/* Publication card hover */
+.row.flex-row:has(.pub-img) {
+    padding: 12px;
+    margin-left: -12px;
+    margin-right: -12px;
+    border-radius: 8px;
+    transition: background-color 0.2s ease;
+}
+
+.row.flex-row:has(.pub-img):hover {
+    background-color: rgba(0, 0, 0, 0.02);
 }
 
 /* Footer */
@@ -327,35 +398,105 @@ html {
     text-align: center;
 }
 
+/* Dark mode toggle button */
+.theme-toggle {
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    background: none;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    cursor: pointer;
+    font-size: 16px;
+    line-height: 36px;
+    padding: 0;
+    text-align: center;
+    color: #45474d;
+    background-color: #fff;
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    z-index: 100;
+}
+
+.theme-toggle:hover {
+    background-color: #f0f4f8;
+    color: #45474d;
+}
+
 /* Dark mode */
-@media (prefers-color-scheme: dark) {
-    body {
-        background-color: #181818;
-        color: #ccc;
-    }
+html[data-theme="dark"] body {
+    background-color: #181818;
+    color: #ccc;
+}
 
-    .name,
-    .section-title {
-        color: #eee;
-    }
+html[data-theme="dark"] .name,
+html[data-theme="dark"] .section-title {
+    color: #eee;
+}
 
-    a {
-        color: #6cacee;
-    }
+html[data-theme="dark"] .section-title {
+    border-left-color: #6cacee;
+}
 
-    a:hover {
-        color: #8fc5f7;
-    }
+html[data-theme="dark"] a {
+    color: #6cacee;
+}
 
-    hr {
-        border-color: #333;
-    }
+html[data-theme="dark"] a:hover {
+    color: #8fc5f7;
+}
 
-    .footer-info {
-        color: #777;
-    }
+html[data-theme="dark"] hr {
+    border-color: #333;
+}
 
-    .icon-muted {
-        color: #888;
-    }
+html[data-theme="dark"] .profile-img {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+html[data-theme="dark"] .profile-img:hover {
+    box-shadow: 0 6px 28px rgba(0, 0, 0, 0.5);
+}
+
+html[data-theme="dark"] .social-links a {
+    background-color: #2a2a2a;
+    color: #6cacee;
+}
+
+html[data-theme="dark"] .social-links a:hover {
+    background-color: #6cacee;
+    color: #181818;
+}
+
+html[data-theme="dark"] .pub-links a {
+    background-color: #2a2a2a;
+    color: #6cacee;
+}
+
+html[data-theme="dark"] .pub-links a:hover {
+    background-color: #6cacee;
+    color: #181818;
+}
+
+html[data-theme="dark"] .row.flex-row:has(.pub-img):hover {
+    background-color: rgba(255, 255, 255, 0.03);
+}
+
+html[data-theme="dark"] .footer-info {
+    color: #777;
+}
+
+html[data-theme="dark"] .icon-muted {
+    color: #888;
+}
+
+html[data-theme="dark"] .theme-toggle {
+    background-color: #2a2a2a;
+    color: #ccc;
+    border-color: #444;
+}
+
+html[data-theme="dark"] .theme-toggle:hover {
+    background-color: #333;
 }

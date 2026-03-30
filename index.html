@@ -27,6 +27,11 @@
   <!-- Mobile Specific Metas
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Fonts
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap">
   <!-- CSS
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link rel="stylesheet" href="css/normalize.css">
@@ -48,6 +53,28 @@
 <!-- <body onload="init()" onresize="init()"> -->
 
 <body>
+  <button class="theme-toggle" aria-label="Toggle dark mode" onclick="toggleTheme()">
+    <i class="fa-solid fa-moon"></i>
+  </button>
+  <script>
+    function getPreferredTheme() {
+      var saved = localStorage.getItem('theme');
+      if (saved) return saved;
+      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+    function applyTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      var icon = document.querySelector('.theme-toggle i');
+      if (icon) icon.className = theme === 'dark' ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
+    }
+    function toggleTheme() {
+      var current = document.documentElement.getAttribute('data-theme') || 'light';
+      var next = current === 'dark' ? 'light' : 'dark';
+      localStorage.setItem('theme', next);
+      applyTheme(next);
+    }
+    applyTheme(getPreferredTheme());
+  </script>
   <!-- Primary Page Layout
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <!-- <header class="container">
@@ -79,19 +106,20 @@
         <p class="name"> Li Ding | 丁立 </p>
         <p class="social-links">
           <a href="https://scholar.google.com/citations?user=l7vkyR8AAAAJ&hl=en&oi=ao" target="_blank"
-            rel="noopener noreferrer"><i class="fa-brands fa-google-scholar"></i> Scholar</a> / <a
-            href="https://github.com/ld-ing" target="_blank" rel="noopener noreferrer"><i
-              class="fa-brands fa-github"></i> Github</a> / <a href="https://twitter.com/li_ding_" target="_blank"
-            rel="noopener noreferrer"><i class="fa-brands fa-x-twitter"></i> Twitter</a> / <a
-            href="https://www.linkedin.com/in/liding256/" target="_blank" rel="noopener noreferrer"><i
+            rel="noopener noreferrer"><i class="fa-brands fa-google-scholar"></i> Scholar</a>
+          <a href="https://github.com/ld-ing" target="_blank" rel="noopener noreferrer"><i
+              class="fa-brands fa-github"></i> Github</a>
+          <a href="https://twitter.com/li_ding_" target="_blank"
+            rel="noopener noreferrer"><i class="fa-brands fa-x-twitter"></i> Twitter</a>
+          <a href="https://www.linkedin.com/in/liding256/" target="_blank" rel="noopener noreferrer"><i
               class="fa-brands fa-linkedin"></i> LinkedIn</a>
         </p>
         <p>
           <i class="far fa-envelope"></i> liding256@gmail.com
         </p>
         <p>I'm currently at <a href="https://deepmind.google/" target="_blank" rel="noopener noreferrer">Google
-            DeepMind</a> (<i class="fa-solid fa-location-dot icon-muted"></i> Mountain View), working on AI safety and
-          security research, with a focus on control for autonomous AI agents, especially coding agents. </p>
+            DeepMind</a> (<i class="fa-solid fa-location-dot icon-muted"></i> Mountain View) working on AI safety and
+          security research. My focus is on control for autonomous AI agents, especially coding agents. </p>
         <p>Previously, I worked on pretraining, architecture, and runtime optimization for the Gemma and Gemini Nano
           models. </p>
         <p>My PhD research focused on alignment for safety and creativity with diversity-driven and open-ended
@@ -160,7 +188,7 @@
             Niekum </a>
           <br>
           <em>RLC 2025</em>
-          <br> [<a href="https://arxiv.org/abs/2406.15599" target="_blank" rel="noopener noreferrer">arXiv</a>]
+          <br> <span class="pub-links"><a href="https://arxiv.org/abs/2406.15599" target="_blank" rel="noopener noreferrer">arXiv</a></span>
         </p>
         <p><i>POPL learns Pareto-optimal policies or reward functions in RLHF, addressing hidden contexts such as
             diverse group preferences without needing group labels, offering safe and fair alignment of agents and
@@ -183,13 +211,12 @@
           <em>ICML 2024</em>
           <br>
           <em>NeurIPS 2023: ALOE Workshop <b class="spotlight">(Spotlight)</b></em>
-          <br> [<a href="qdhf/" target="_blank" rel="noopener noreferrer">project page</a>] [<a
-            href="https://arxiv.org/abs/2310.12103" target="_blank" rel="noopener noreferrer">arXiv</a>] [<a
-            href="https://huggingface.co/spaces/jennyzzt/quality-diversity-through-human-feedback">demo</a>] [<a
-            href="https://neurips.cc/virtual/2023/83789">talk</a>] [<a href="https://github.com/ld-ing/qdhf"
-            target="_blank" rel="noopener noreferrer">code</a>] [<a
-            href="https://docs.pyribs.org/en/stable/tutorials/qdhf.html" target="_blank"
-            rel="noopener noreferrer">tutorial</a>]
+          <br> <span class="pub-links"><a href="qdhf/" target="_blank" rel="noopener noreferrer">project page</a>
+            <a href="https://arxiv.org/abs/2310.12103" target="_blank" rel="noopener noreferrer">arXiv</a>
+            <a href="https://huggingface.co/spaces/jennyzzt/quality-diversity-through-human-feedback">demo</a>
+            <a href="https://neurips.cc/virtual/2023/83789">talk</a>
+            <a href="https://github.com/ld-ing/qdhf" target="_blank" rel="noopener noreferrer">code</a>
+            <a href="https://docs.pyribs.org/en/stable/tutorials/qdhf.html" target="_blank" rel="noopener noreferrer">tutorial</a></span>
         </p>
         <p><i>QDHF learns diversity metrics from human feedback and uses those to optimize for the discovery of novel
             solutions, enhancing the task-solving capabilities of RL agents and the creativity of generative models.</i>
@@ -208,9 +235,8 @@
           <br>
           <b>Li Ding</b>, Masrour Zoghi, Guy Tennenholtz, Maryam Karimzadehgan <br>
           <em>NeurIPS 2023: RealML Workshop</em>
-          <br> [<a href="https://arxiv.org/abs/2310.18893" target="_blank" rel="noopener noreferrer">arXiv</a>] [<a
-            href="https://github.com/google-research/google-research/tree/master/ev3" target="_blank"
-            rel="noopener noreferrer">code</a>]
+          <br> <span class="pub-links"><a href="https://arxiv.org/abs/2310.18893" target="_blank" rel="noopener noreferrer">arXiv</a>
+            <a href="https://github.com/google-research/google-research/tree/master/ev3" target="_blank" rel="noopener noreferrer">code</a></span>
         </p>
       </div>
     </div>
@@ -225,10 +251,9 @@
           <br>
           <b>Li Ding</b>, Edward Pantridge, <a href="https://lspector.github.io/">Lee Spector</a> <br>
           <em>GECCO 2023</em>
-          <br> [<a href="https://dl.acm.org/doi/abs/10.1145/3583131.3590375" target="_blank"
-            rel="noopener noreferrer">paper</a>] [<a href="https://arxiv.org/abs/2305.11681" target="_blank"
-            rel="noopener noreferrer">arXiv</a>] [<a href="https://github.com/ld-ing/plexicase" target="_blank"
-            rel="noopener noreferrer">code</a>]
+          <br> <span class="pub-links"><a href="https://dl.acm.org/doi/abs/10.1145/3583131.3590375" target="_blank" rel="noopener noreferrer">paper</a>
+            <a href="https://arxiv.org/abs/2305.11681" target="_blank" rel="noopener noreferrer">arXiv</a>
+            <a href="https://github.com/ld-ing/plexicase" target="_blank" rel="noopener noreferrer">code</a></span>
         </p>
       </div>
     </div>
@@ -243,11 +268,10 @@
           <br>
           <b>Li Ding</b>, <a href="https://lspector.github.io/">Lee Spector</a> <br>
           <em>ICLR 2022</em>
-          <br> [<a href="https://openreview.net/forum?id=J_2xNmVcY4" target="_blank"
-            rel="noopener noreferrer">paper</a>] [<a href="https://iclr.cc/virtual/2022/poster/5996" target="_blank"
-            rel="noopener noreferrer">video</a>] [<a href="materials/ding2022optimizing_poster.pdf" target="_blank"
-            rel="noopener noreferrer">poster</a>] [<a href="https://github.com/ld-ing/gradient-lexicase" target="_blank"
-            rel="noopener noreferrer">code</a>]
+          <br> <span class="pub-links"><a href="https://openreview.net/forum?id=J_2xNmVcY4" target="_blank" rel="noopener noreferrer">paper</a>
+            <a href="https://iclr.cc/virtual/2022/poster/5996" target="_blank" rel="noopener noreferrer">video</a>
+            <a href="materials/ding2022optimizing_poster.pdf" target="_blank" rel="noopener noreferrer">poster</a>
+            <a href="https://github.com/ld-ing/gradient-lexicase" target="_blank" rel="noopener noreferrer">code</a></span>
         </p>
         <p><i>We propose an optimization framework that improves the generalization of deep networks by learning more
             diverse representations.</i></p>
@@ -264,9 +288,8 @@
           <br>
           <b>Li Ding</b>, Jack Terwilliger, Aishni Parab, Meng Wang, Lex Fridman, Bruce Mehler, Bryan Reimer <br>
           <em>ACM Transactions on Computer-Human Interaction, 2023</em>
-          <br> [<a href="https://dl.acm.org/doi/abs/10.1145/3603622" target="_blank"
-            rel="noopener noreferrer">paper</a>] [<a href="https://arxiv.org/abs/2306.15073" target="_blank"
-            rel="noopener noreferrer">arXiv</a>]
+          <br> <span class="pub-links"><a href="https://dl.acm.org/doi/abs/10.1145/3603622" target="_blank" rel="noopener noreferrer">paper</a>
+            <a href="https://arxiv.org/abs/2306.15073" target="_blank" rel="noopener noreferrer">arXiv</a></span>
         </p>
       </div>
     </div>
@@ -281,19 +304,17 @@
           <br>
           <b>Li Ding</b>, Jack Terwilliger, Rini Sherony, Bryan Reimer, Lex Fridman <br>
           <em>IEEE Transactions on Intelligent Vehicles, 2021</em>
-          <br> [<a href="https://ieeexplore.ieee.org/abstract/document/9478305" target="_blank"
-            rel="noopener noreferrer">paper</a>] [<a href="https://arxiv.org/abs/1904.00758" target="_blank"
-            rel="noopener noreferrer">arXiv</a>] [<a
-            href="https://ieee-dataport.org/open-access/mit-driveseg-manual-dataset" target="_blank"
-            rel="noopener noreferrer">MIT DriveSeg Dataset</a>] <br> Press coverage: [<a
+          <br> <span class="pub-links"><a href="https://ieeexplore.ieee.org/abstract/document/9478305" target="_blank" rel="noopener noreferrer">paper</a>
+            <a href="https://arxiv.org/abs/1904.00758" target="_blank" rel="noopener noreferrer">arXiv</a>
+            <a href="https://ieee-dataport.org/open-access/mit-driveseg-manual-dataset" target="_blank" rel="noopener noreferrer">MIT DriveSeg Dataset</a></span>
+          <br> Press coverage: <span class="pub-links"><a
             href="https://news.mit.edu/2020/mit-toyota-release-visual-open-data-accelerate-autonomous-driving-research-0618"
-            target="_blank" rel="noopener noreferrer">MIT News</a>] [<a
-            href="https://www.forbes.com/sites/rahulrazdan/2020/06/24/mit-and-toyota-announce-an-important-dataset-for-improving-perception-research/?sh=1b2223ee72e0"
-            target="_blank" rel="noopener noreferrer">Forbes</a>] [<a
-            href="https://www.infoq.com/news/2020/06/mit-toyota-autonomous-driving/" target="_blank"
-            rel="noopener noreferrer">InfoQ</a>] [<a
-            href="https://techcrunch.com/2020/06/21/the-station-doordash-snags-400m-bolt-mobility-deploys-self-cleaning-tech-and-disappearing-jump-bikes/"
-            target="_blank" rel="noopener noreferrer">TechCrunch</a>]
+            target="_blank" rel="noopener noreferrer">MIT News</a>
+            <a href="https://www.forbes.com/sites/rahulrazdan/2020/06/24/mit-and-toyota-announce-an-important-dataset-for-improving-perception-research/?sh=1b2223ee72e0"
+            target="_blank" rel="noopener noreferrer">Forbes</a>
+            <a href="https://www.infoq.com/news/2020/06/mit-toyota-autonomous-driving/" target="_blank" rel="noopener noreferrer">InfoQ</a>
+            <a href="https://techcrunch.com/2020/06/21/the-station-doordash-snags-400m-bolt-mobility-deploys-self-cleaning-tech-and-disappearing-jump-bikes/"
+            target="_blank" rel="noopener noreferrer">TechCrunch</a></span>
         </p>
       </div>
     </div>
@@ -343,11 +364,11 @@
           <b>Arguing machines: Human supervision of black box AI systems that make life-critical decisions</b>
           <br> Lex Fridman, <b>Li Ding</b>, Benedikt Jenik, Bryan Reimer<br>
           <em>CVPR 2019 Workshops </em>
-          <br> [<a
+          <br> <span class="pub-links"><a
             href="https://openaccess.thecvf.com/content_CVPRW_2019/html/WAD/Fridman_Arguing_Machines_Human_Supervision_of_Black_Box_AI_Systems_That_CVPRW_2019_paper.html"
-            target="_blank" rel="noopener noreferrer">paper</a>] [<a href="https://arxiv.org/abs/1710.04459"
-            target="_blank" rel="noopener noreferrer">arXiv</a>] [<a
-            href="https://www.youtube.com/watch?v=YBvcKtLKNAw&list=PLrAXtmErZgOfvrgXrKgzAFbqAW-lCG0Fv">video</a>]
+            target="_blank" rel="noopener noreferrer">paper</a>
+            <a href="https://arxiv.org/abs/1710.04459" target="_blank" rel="noopener noreferrer">arXiv</a>
+            <a href="https://www.youtube.com/watch?v=YBvcKtLKNAw&list=PLrAXtmErZgOfvrgXrKgzAFbqAW-lCG0Fv">video</a></span>
         </p>
       </div>
     </div>
@@ -362,12 +383,12 @@
           <br>
           <b>Li Ding</b>, Chenliang Xu<br>
           <em>CVPR 2018</em>
-          <br> [<a
+          <br> <span class="pub-links"><a
             href="https://openaccess.thecvf.com/content_cvpr_2018/html/Ding_Weakly-Supervised_Action_Segmentation_CVPR_2018_paper.html"
-            target="_blank" rel="noopener noreferrer">paper</a>] [<a href="https://arxiv.org/abs/1803.10699"
-            target="_blank" rel="noopener noreferrer">arXiv</a>] [<a href="materials/ding2018weakly_poster.pdf"
-            target="_blank" rel="noopener noreferrer">poster</a>] [<a href="https://github.com/Zephyr-D/TCFPN-ISBA"
-            target="_blank" rel="noopener noreferrer">code</a>]
+            target="_blank" rel="noopener noreferrer">paper</a>
+            <a href="https://arxiv.org/abs/1803.10699" target="_blank" rel="noopener noreferrer">arXiv</a>
+            <a href="materials/ding2018weakly_poster.pdf" target="_blank" rel="noopener noreferrer">poster</a>
+            <a href="https://github.com/Zephyr-D/TCFPN-ISBA" target="_blank" rel="noopener noreferrer">code</a></span>
         </p>
       </div>
     </div>
