@@ -115,6 +115,42 @@
     left: 5px;
 }
 
+/* Blog image gallery — flexbox, stays side-by-side on mobile */
+.blog-gallery {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 0.5rem;
+}
+
+.blog-gallery > * {
+    flex: 1;
+    min-width: 0;
+}
+
+.blog-gallery img,
+.blog-gallery video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Flex weight utilities for uneven layouts */
+.blog-gallery .w3 { flex: 3; }
+.blog-gallery .w4 { flex: 4; }
+.blog-gallery .w5 { flex: 5; }
+.blog-gallery .w6 { flex: 6; }
+.blog-gallery .w7 { flex: 7; }
+.blog-gallery .w8 { flex: 8; }
+
+/* Blog caption */
+.blog-caption {
+    text-align: center;
+    color: gray;
+    font-size: 0.9em;
+    font-style: italic;
+}
+
 .navbar {
     display: none;
 }
@@ -227,5 +263,99 @@
     /* Re-overiding the width 100% declaration to match size of % based container */
     .has-docked-nav .navbar>.container {
         width: 80%;
+    }
+}
+
+/* Layout */
+html {
+    height: 100%;
+}
+
+.flex-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+/* Profile */
+.profile-img {
+    width: 75%;
+    display: block;
+    margin: auto;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.name {
+    font-size: 2em;
+    color: black;
+}
+
+.social-links {
+    margin-bottom: .5rem;
+}
+
+/* Sections */
+.section-title {
+    color: black;
+    font-size: 1.3em;
+}
+
+.pub-img {
+    width: 90%;
+}
+
+.icon-muted {
+    color: darkgray;
+}
+
+.spotlight {
+    color: #0053D6;
+}
+
+/* Footer */
+.footer-info {
+    font-size: 0.8em;
+    color: dimgray;
+    width: 100%;
+    text-align: right;
+}
+
+.copyright {
+    margin-top: -3rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #181818;
+        color: #ccc;
+    }
+
+    .name,
+    .section-title {
+        color: #eee;
+    }
+
+    a {
+        color: #6cacee;
+    }
+
+    a:hover {
+        color: #8fc5f7;
+    }
+
+    hr {
+        border-color: #333;
+    }
+
+    .footer-info {
+        color: #777;
+    }
+
+    .icon-muted {
+        color: #888;
     }
 }
