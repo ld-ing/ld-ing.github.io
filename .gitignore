@@ -2,3 +2,10 @@ archive/
 .DS_Store
 .vscode/
 images/.DS_Store
+/*.tex
+/*.cls
+/*.aux
+/*.log
+/*.out
+/*.bbl
+/*.synctex.gz

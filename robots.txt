@@ -4,3 +4,4 @@ Disallow: /images/
 Disallow: /css/
 Disallow: /blogs/
 Disallow: /js/
+Disallow: /li_ding_cv.pdf
